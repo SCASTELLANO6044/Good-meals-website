@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "start": "python -m http.server 4173",
+    "serve": "python -m http.server 4173"
+  },
+  "devDependencies": {}
+}

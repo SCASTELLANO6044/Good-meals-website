@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Good Meals | Chef-made weekly meal subscriptions</title>
+    <meta name="description" content="Good Meals is a premium meal-prep subscription for fresh, chef-made weekly deliveries you can manage as easily as streaming.">
+    <link rel="preload" href="assets/good-meals-food-sheet.webp" as="image" type="image/webp">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="loader" aria-hidden="true">
+      <div class="loader__mark">GM</div>
+      <div class="loader__name">GOOD MEALS</div>
+    </div>
+
+    <header class="site-header" data-reveal>
+      <a class="brand" href="index.html" aria-label="Good Meals home">
+        <span class="brand__sigil">GM</span>
+        <span>Good Meals</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#meals">Meals</a>
+        <a href="#plans">Plans</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="nav-cta" href="#plans">Start Your Subscription</a>
+    </header>
+
+    <main>
+      <section class="hero section-pad" id="top">
+        <div class="hero__media" data-reveal>
+          <div class="hero__image meal-crop crop-0" role="img" aria-label="Fresh salmon grain bowl with quinoa, avocado, and roasted vegetables"></div>
+          <div class="hero__badge floating-card">
+            <span>Weekly drop</span>
+            <strong>10 meals arriving Friday</strong>
+          </div>
+          <div class="hero__metric floating-card">
+            <span>From</span>
+            <strong>$13.90 per meal</strong>
+          </div>
+        </div>
+        <div class="hero__content" data-reveal>
+          <p class="eyebrow">Fresh meals on subscription</p>
+          <h1>Netflix, but for food.</h1>
+          <p class="hero__lede">Subscribe once, choose your weekly lineup, and receive fresh chef-made meals built for busy days, healthy habits, and zero dinner decisions.</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#plans">Start Your Subscription</a>
+            <a class="button button--secondary" href="#meals">Browse Meals</a>
+          </div>
+          <div class="proof-row" aria-label="Good Meals highlights">
+            <span>Nutritionist approved</span>
+            <span>Pause anytime</span>
+            <span>Delivered chilled</span>
+          </div>
+        </div>
+        <div class="hero__word" aria-hidden="true">GOOD MEALS</div>
+      </section>
+
+      <section class="intro-band" data-reveal>
+        <div>
+          <p class="eyebrow">A calmer way to eat well</p>
+          <h2>Fresh weekly meals, managed in minutes.</h2>
+        </div>
+        <p>Good Meals brings the subscription simplicity of your favorite streaming service to the part of life that usually steals the most time: deciding what to cook.</p>
+      </section>
+
+      <section class="section-pad" id="how">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">How it works</p>
+          <h2>Your week, already handled.</h2>
+        </div>
+        <div class="steps">
+          <article class="step-card" data-reveal>
+            <span>01</span>
+            <h3>Choose your plan</h3>
+            <p>Select the meal count that fits your week, from lighter coverage to fully stocked weekdays.</p>
+          </article>
+          <article class="step-card" data-reveal>
+            <span>02</span>
+            <h3>Select your meals</h3>
+            <p>Build a weekly lineup from high-protein, vegan, keto, gluten-free, and balanced options.</p>
+          </article>
+          <article class="step-card" data-reveal>
+            <span>03</span>
+            <h3>Receive fresh deliveries</h3>
+            <p>Meals arrive chilled in insulated, eco-conscious packaging with clear use-by dates.</p>
+          </article>
+          <article class="step-card" data-reveal>
+            <span>04</span>
+            <h3>Heat and enjoy</h3>
+            <p>Restaurant-quality meals are ready in three minutes, with no prep and no cleanup spiral.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-pad dark-section" id="meals">
+        <div class="section-heading section-heading--split" data-reveal>
+          <div>
+            <p class="eyebrow">Featured meals</p>
+            <h2>Chef-built menus that make healthy feel easy.</h2>
+          </div>
+          <a class="button button--light" href="#plans">Add meals to plan</a>
+        </div>
+        <div class="meal-grid" id="featuredMeals"></div>
+      </section>
+
+      <section class="section-pad why">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Why choose us</p>
+          <h2>Premium food systems for people with full calendars.</h2>
+        </div>
+        <div class="why-grid">
+          <article data-reveal>
+            <h3>Chef-prepared meals</h3>
+            <p>Every menu is built by culinary pros for flavor, texture, and reheating quality.</p>
+          </article>
+          <article data-reveal>
+            <h3>Fresh ingredients</h3>
+            <p>Seasonal produce, lean proteins, and whole grains are prepared fresh each week.</p>
+          </article>
+          <article data-reveal>
+            <h3>Nutritionist approved</h3>
+            <p>Macros are clear, portions are balanced, and every meal is designed to support steady energy.</p>
+          </article>
+          <article data-reveal>
+            <h3>Flexible subscriptions</h3>
+            <p>Skip weeks, pause, swap meals, or change your meal count from a simple account dashboard.</p>
+          </article>
+          <article data-reveal>
+            <h3>Cancel anytime</h3>
+            <p>No long commitment. Good Meals is designed to fit your life, not trap you inside a plan.</p>
+          </article>
+          <article data-reveal>
+            <h3>Eco-friendly packaging</h3>
+            <p>Recyclable trays and insulated liners protect freshness while reducing unnecessary waste.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-pad plans" id="plans">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Subscription plans</p>
+          <h2>Pick your weekly rhythm.</h2>
+        </div>
+        <div class="plan-grid">
+          <article class="plan-card" data-reveal>
+            <p class="plan-card__label">Essential</p>
+            <h3>6 meals/week</h3>
+            <p class="price">$15.90 <span>per meal</span></p>
+            <ul>
+              <li>Ideal for lunch coverage</li>
+              <li>Choose from 18 weekly meals</li>
+              <li>Pause or skip anytime</li>
+            </ul>
+            <a class="button button--secondary" href="#">Start Essential</a>
+          </article>
+          <article class="plan-card plan-card--featured" data-reveal>
+            <div class="recommended">Recommended</div>
+            <p class="plan-card__label">Signature</p>
+            <h3>10 meals/week</h3>
+            <p class="price">$13.90 <span>per meal</span></p>
+            <ul>
+              <li>Best for workweeks</li>
+              <li>Priority access to new meals</li>
+              <li>Free weekly delivery</li>
+              <li>Subscription concierge support</li>
+            </ul>
+            <a class="button button--primary" href="#">Start Signature</a>
+          </article>
+          <article class="plan-card" data-reveal>
+            <p class="plan-card__label">Complete</p>
+            <h3>14 meals/week</h3>
+            <p class="price">$12.80 <span>per meal</span></p>
+            <ul>
+              <li>Lunches and dinners covered</li>
+              <li>Family-style add-ons</li>
+              <li>Free weekly delivery</li>
+            </ul>
+            <a class="button button--secondary" href="#">Start Complete</a>
+          </article>
+        </div>
+        <div class="compare" data-reveal>
+          <span>All plans include fresh weekly menus, macro details, dietary filters, recyclable packaging, and one-click pause controls.</span>
+        </div>
+      </section>
+
+      <section class="section-pad testimonials">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Customer stories</p>
+          <h2>More time, better food, fewer compromises.</h2>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card" data-reveal>
+            <div class="avatar">AR</div>
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"Good Meals turned my workweek into something manageable. I eat better, spend less time planning, and still feel like dinner is intentional."</p>
+            <strong>Ari R.</strong>
+          </article>
+          <article class="testimonial-card" data-reveal>
+            <div class="avatar">MK</div>
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"The subscription controls are the reason I stayed. Swapping meals is fast, and the food tastes like it was cooked that day."</p>
+            <strong>Maya K.</strong>
+          </article>
+          <article class="testimonial-card" data-reveal>
+            <div class="avatar">JL</div>
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"It feels premium without being fussy. The macros are clear, the meals are fresh, and my fridge finally works for me."</p>
+            <strong>Julian L.</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-pad faq" id="faq">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">FAQ</p>
+          <h2>Subscription clarity before checkout.</h2>
+        </div>
+        <div class="faq-list">
+          <details data-reveal>
+            <summary>Can I pause or cancel anytime?</summary>
+            <p>Yes. Pause, skip, change meal count, or cancel from your account before the weekly cutoff.</p>
+          </details>
+          <details data-reveal>
+            <summary>Are meals fresh or frozen?</summary>
+            <p>Meals are delivered fresh and chilled. They are designed to reheat beautifully in about three minutes.</p>
+          </details>
+          <details data-reveal>
+            <summary>Can I filter by dietary preference?</summary>
+            <p>Yes. You can browse by high protein, vegan, keto, gluten free, dairy free, and balanced meals.</p>
+          </details>
+          <details data-reveal>
+            <summary>When do deliveries arrive?</summary>
+            <p>Most customers receive meals once per week. Delivery windows are selected during subscription setup.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div>
+          <h2>Ready for a better week?</h2>
+          <p>Get fresh chef-made meals delivered weekly, then manage everything from one simple subscription.</p>
+        </div>
+        <form class="newsletter" aria-label="Newsletter signup">
+          <label for="email">Newsletter</label>
+          <div>
+            <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+            <button type="submit">Join</button>
+          </div>
+        </form>
+      </div>
+      <div class="footer-word">GOOD MEALS</div>
+      <div class="footer-bottom">
+        <span>hello@goodmeals.example</span>
+        <nav aria-label="Footer navigation">
+          <a href="#top">Home</a>
+          <a href="#meals">Meals</a>
+          <a href="#plans">Plans</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <span>Instagram / TikTok / LinkedIn</span>
+      </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
