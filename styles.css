@@ -1,16 +1,16 @@
 :root {
-  --ink: #0c0a09;
-  --charcoal: #171412;
-  --stone: #fafaf7;
-  --paper: #f4f0e9;
-  --cream: #fffaf1;
-  --line: #ded6ca;
-  --muted: #686058;
-  --gold: #a16207;
-  --gold-dark: #704500;
-  --green: #365a3a;
-  --red: #c51212;
-  --shadow: 0 24px 80px rgba(12, 10, 9, 0.14);
+  --ink: #22252d;
+  --charcoal: #17221b;
+  --stone: #ffffff;
+  --paper: #f4fbfb;
+  --cream: #eef9fa;
+  --line: #d9e6e8;
+  --muted: #667078;
+  --gold: #4f9fbc;
+  --gold-dark: #286f90;
+  --green: #2d4535;
+  --red: #9fd5df;
+  --shadow: 0 24px 80px rgba(31, 38, 45, 0.12);
   --radius: 8px;
 }
 
@@ -36,7 +36,7 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(rgba(12, 10, 9, 0.055) 0.8px, transparent 0.8px);
+  background-image: radial-gradient(rgba(79, 159, 188, 0.12) 0.8px, transparent 0.8px);
   background-size: 12px 12px;
   opacity: 0.24;
   z-index: -1;
@@ -59,7 +59,7 @@ input {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(161, 98, 7, 0.6);
+  outline: 3px solid rgba(79, 159, 188, 0.6);
   outline-offset: 4px;
 }
 
@@ -70,8 +70,8 @@ input {
   display: grid;
   place-items: center;
   gap: 1rem;
-  background: var(--red);
-  color: #030303;
+  background: var(--cream);
+  color: var(--ink);
   transition: transform 700ms cubic-bezier(0.76, 0, 0.24, 1), opacity 500ms ease;
 }
 
@@ -109,8 +109,8 @@ input {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 1rem clamp(1rem, 3vw, 3rem);
-  background: rgba(250, 250, 247, 0.78);
-  border-bottom: 1px solid rgba(222, 214, 202, 0.75);
+  background: rgba(255, 255, 255, 0.84);
+  border-bottom: 1px solid rgba(217, 230, 232, 0.86);
   backdrop-filter: blur(18px);
 }
 
@@ -232,7 +232,7 @@ h3 {
 
 .hero__lede {
   max-width: 650px;
-  color: #3f3a35;
+  color: #4f5962;
   font-size: clamp(1.05rem, 1.5vw, 1.3rem);
 }
 
@@ -254,7 +254,7 @@ h3 {
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.52);
+  background: rgba(255, 255, 255, 0.66);
 }
 
 .button {
@@ -271,7 +271,7 @@ h3 {
 
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(12, 10, 9, 0.16);
+  box-shadow: 0 12px 28px rgba(31, 38, 45, 0.14);
 }
 
 .button--primary {
@@ -297,8 +297,8 @@ h3 {
 }
 
 .hero__image {
-  width: min(100%, 620px);
-  aspect-ratio: 0.82;
+  width: min(100%, 512px);
+  aspect-ratio: 1;
   margin-left: auto;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -330,9 +330,9 @@ h3 {
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: var(--radius);
-  background: rgba(255, 250, 241, 0.76);
+  background: rgba(244, 251, 251, 0.82);
   backdrop-filter: blur(16px);
-  box-shadow: 0 18px 44px rgba(12, 10, 9, 0.16);
+  box-shadow: 0 18px 44px rgba(31, 38, 45, 0.14);
 }
 
 .floating-card span {
@@ -360,7 +360,7 @@ h3 {
   position: absolute;
   left: clamp(1rem, 3vw, 3rem);
   bottom: -0.11em;
-  color: rgba(197, 18, 18, 0.96);
+  color: rgba(159, 213, 223, 0.82);
   font-size: clamp(5rem, 22vw, 22rem);
   font-weight: 900;
   line-height: 0.78;
@@ -382,7 +382,7 @@ h3 {
 .intro-band p:last-child {
   max-width: 620px;
   align-self: end;
-  color: #d7d0c8;
+  color: #d8e7e8;
   font-size: clamp(1.1rem, 1.7vw, 1.45rem);
 }
 
@@ -432,7 +432,7 @@ h3 {
 }
 
 .step-card span {
-  color: var(--red);
+  color: var(--gold-dark);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 2.5rem;
 }
@@ -452,7 +452,7 @@ h3 {
 }
 
 .dark-section .eyebrow {
-  color: #e0b55d;
+  color: #9fd5df;
 }
 
 .meal-grid {
@@ -465,7 +465,7 @@ h3 {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
-  background: #211d1a;
+  background: #203127;
   transition: transform 220ms ease, border-color 220ms ease;
 }
 
@@ -493,7 +493,7 @@ h3 {
   padding: 0.35rem 0.55rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.1);
-  color: #f8ead1;
+  color: #e9fbff;
   font-size: 0.72rem;
   font-weight: 700;
 }
@@ -543,7 +543,7 @@ h3 {
 
 .plan-card--featured li,
 .plan-card--featured .plan-card__label {
-  color: #d7d0c8;
+  color: #d8e7e8;
 }
 
 .recommended {
@@ -552,7 +552,7 @@ h3 {
   right: 1rem;
   padding: 0.4rem 0.7rem;
   border-radius: 999px;
-  background: var(--red);
+  background: var(--gold);
   color: #fff;
   font-size: 0.72rem;
   font-weight: 800;
@@ -641,8 +641,8 @@ h3 {
 
 .site-footer {
   padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 4vw, 4rem) 1.5rem;
-  background: var(--red);
-  color: #030303;
+  background: var(--cream);
+  color: var(--ink);
 }
 
 .footer-top,
@@ -673,7 +673,7 @@ h3 {
 
 .newsletter div {
   display: flex;
-  border: 1px solid #030303;
+  border: 1px solid var(--ink);
   border-radius: 999px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.16);
@@ -685,17 +685,17 @@ h3 {
   border: 0;
   padding: 0 1rem;
   background: transparent;
-  color: #030303;
+  color: var(--ink);
 }
 
 .newsletter input::placeholder {
-  color: rgba(3, 3, 3, 0.58);
+  color: rgba(34, 37, 45, 0.58);
 }
 
 .newsletter button {
   min-width: 96px;
   border: 0;
-  background: #030303;
+  background: var(--ink);
   color: #fff;
   font-weight: 800;
 }
@@ -752,7 +752,7 @@ h3 {
 }
 
 .meal-detail .label-row span {
-  background: rgba(161, 98, 7, 0.12);
+  background: rgba(79, 159, 188, 0.14);
   color: var(--gold-dark);
 }
 
@@ -822,7 +822,7 @@ h3 {
 
 .related-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 38px rgba(12, 10, 9, 0.12);
+  box-shadow: 0 16px 38px rgba(31, 38, 45, 0.12);
 }
 
 .related-card__image {
