@@ -20,7 +20,8 @@
         <span>Good Meals</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#meals">Comidas</a>
+        <a href="#meals">Popular Meals</a>
+        <a href="#menu">Menú</a>
         <a href="#plans">Planes</a>
         <a href="#faq">Preguntas Frecuentes</a>
         <a href="#contact">Contacto</a>
@@ -94,12 +95,49 @@
       <section class="section-pad dark-section" id="meals">
         <div class="section-heading section-heading--split" data-reveal>
           <div>
-            <p class="eyebrow">Nuestros platos destacados</p>
+            <p class="eyebrow">Popular Meals</p>
             <h2>Menús hechos por chefs que hacen que comer saludable sea fácil.</h2>
           </div>
           <a class="button button--light" href="#plans">Añade comidas al plan</a>
         </div>
         <div class="meal-grid" id="featuredMeals"></div>
+      </section>
+
+      <section class="section-pad menu-showcase" id="menu">
+        <div class="section-heading section-heading--split" data-reveal>
+          <div>
+            <p class="eyebrow">Menú semanal</p>
+            <h2>Todos nuestros platos.</h2>
+          </div>
+          <div class="carousel-controls" aria-label="Controles del carrusel de menú">
+            <button class="carousel-button" type="button" data-carousel-prev aria-label="Ver menú anterior">‹</button>
+            <button class="carousel-button" type="button" data-carousel-next aria-label="Ver menú siguiente">›</button>
+          </div>
+        </div>
+        <div class="menu-carousel" data-reveal>
+          <div class="menu-carousel__track" tabindex="0" aria-label="Carrusel de fotos del menú">
+            <article class="menu-slide">
+              <div class="menu-slide__placeholder">
+                <span>Menu 01</span>
+              </div>
+            </article>
+            <article class="menu-slide">
+              <div class="menu-slide__placeholder">
+                <span>Menu 02</span>
+              </div>
+            </article>
+            <article class="menu-slide">
+              <div class="menu-slide__placeholder">
+                <span>Menu 03</span>
+              </div>
+            </article>
+            <article class="menu-slide">
+              <div class="menu-slide__placeholder">
+                <span>Menu 04</span>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section class="section-pad why">
@@ -296,7 +334,8 @@
         <span>info@goodmeals.es</span>
         <nav aria-label="Footer navigation">
           <a href="#top">Home</a>
-          <a href="#meals">Meals</a>
+          <a href="#meals">Popular Meals</a>
+          <a href="#menu">Menu</a>
           <a href="#plans">Plans</a>
           <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>

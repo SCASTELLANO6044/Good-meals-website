@@ -78,6 +78,18 @@
     });
   });
 
+  const carouselTrack = document.querySelector(".menu-carousel__track");
+  if (carouselTrack) {
+    const scrollCarousel = (direction) => {
+      const firstSlide = carouselTrack.querySelector(".menu-slide");
+      const slideWidth = firstSlide ? firstSlide.getBoundingClientRect().width : carouselTrack.clientWidth;
+      carouselTrack.scrollBy({ left: direction * (slideWidth + 16), behavior: prefersReduced ? "auto" : "smooth" });
+    };
+
+    document.querySelector("[data-carousel-prev]")?.addEventListener("click", () => scrollCarousel(-1));
+    document.querySelector("[data-carousel-next]")?.addEventListener("click", () => scrollCarousel(1));
+  }
+
   const revealItems = document.querySelectorAll("[data-reveal]");
   if (!prefersReduced && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
