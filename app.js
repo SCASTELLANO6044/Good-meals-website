@@ -57,14 +57,23 @@
   document.querySelectorAll("form").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
       const button = form.querySelector("button");
       if (!button) return;
       const original = button.textContent;
+      const status = form.querySelector(".form-status");
+      const successText = form.getAttribute("data-success") || "Added";
+      const statusText = form.getAttribute("data-status") || "";
       button.disabled = true;
-      button.textContent = "Added";
+      button.textContent = successText;
+      if (status) status.textContent = statusText;
       window.setTimeout(() => {
         button.disabled = false;
         button.textContent = original;
+        if (status) status.textContent = "";
       }, 1600);
     });
   });

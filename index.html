@@ -23,6 +23,7 @@
         <a href="#meals">Comidas</a>
         <a href="#plans">Planes</a>
         <a href="#faq">Preguntas Frecuentes</a>
+        <a href="#contact">Contacto</a>
       </nav>
       <a class="nav-cta" href="#plans">Empieza Ahora</a>
     </header>
@@ -149,7 +150,7 @@
               <li>Choose from 18 weekly meals</li>
               <li>Pause or skip anytime</li>
             </ul>
-            <a class="button button--secondary" href="#">Start Essential</a>
+            <a class="button button--secondary" href="#contact">Start Essential</a>
           </article>
           <article class="plan-card plan-card--featured" data-reveal>
             <div class="recommended">Recommended</div>
@@ -162,7 +163,7 @@
               <li>Free weekly delivery</li>
               <li>Subscription concierge support</li>
             </ul>
-            <a class="button button--primary" href="#">Start Signature</a>
+            <a class="button button--primary" href="#contact">Start Signature</a>
           </article>
           <article class="plan-card" data-reveal>
             <p class="plan-card__label">Complete</p>
@@ -173,7 +174,7 @@
               <li>Family-style add-ons</li>
               <li>Free weekly delivery</li>
             </ul>
-            <a class="button button--secondary" href="#">Start Complete</a>
+            <a class="button button--secondary" href="#contact">Start Complete</a>
           </article>
         </div>
         <div class="compare" data-reveal>
@@ -240,6 +241,40 @@
           </details>
         </div>
       </section>
+
+      <section class="section-pad contact" id="contact">
+        <div class="contact__intro" data-reveal>
+          <p class="eyebrow">Contacto</p>
+          <h2>Cuéntanos qué necesitas para comer mejor esta semana.</h2>
+          <p>Déjanos tus datos y tu mensaje. El equipo de Good Meals revisará tu solicitud y te responderá con una propuesta clara.</p>
+          <div class="contact__details">
+            <span>info@goodmeals.es</span>
+            <span>+34 697 797 233</span>
+          </div>
+        </div>
+        <form class="contact-form" aria-label="Formulario de contacto" data-success="Mensaje enviado" data-status="Mensaje recibido. Te responderemos pronto." data-reveal>
+          <div class="field-row">
+            <label for="contact-name">Nombre <span>obligatorio</span></label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Tu nombre">
+          </div>
+          <div class="field-grid">
+            <div class="field-row">
+              <label for="contact-email">Email <span>obligatorio</span></label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" required placeholder="tu@email.com">
+            </div>
+            <div class="field-row">
+              <label for="contact-phone">Teléfono <span>obligatorio</span></label>
+              <input id="contact-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+34 600 000 000">
+            </div>
+          </div>
+          <div class="field-row">
+            <label for="contact-message">Mensaje <span>obligatorio</span></label>
+            <textarea id="contact-message" name="message" rows="6" required placeholder="Cuéntanos sobre tu plan ideal, dudas o necesidades dietéticas."></textarea>
+          </div>
+          <button class="button button--primary" type="submit">Enviar mensaje</button>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -264,6 +299,7 @@
           <a href="#meals">Meals</a>
           <a href="#plans">Plans</a>
           <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
         </nav>
         <span> <a href="https://www.instagram.com/good.meals_">Instagram</a>  / <a href="https://api.whatsapp.com/send/?phone=34697797233&text&type=phone_number&app_absent=0">WhatsApp</a> / <a href="https://www.tiktok.com/@good.meals_">TikTok</a></span>
       </div>
