@@ -1,16 +1,17 @@
 window.GOOD_MEALS = [
   {
-    slug: "salmon-grain-bowl",
-    name: "Salmon Grain Bowl",
+    slug: "pollo-al-curry",
+    name: "Pollo al curry",
     crop: 0,
+    image: "assets/meals/pollo-al-curry.JPG",
     calories: 610,
     protein: "42g",
     carbs: "51g",
     fat: "24g",
-    labels: ["High Protein", "Gluten Free"],
-    description: "Roasted salmon, quinoa, avocado, cucumber, sweet potato, and lemon tahini.",
+    labels: ["High Protein"],
+    description: "Pollo al curry con arroz integral, brócoli, zanahoria y salsa de coco.",
     ingredients: ["Atlantic salmon", "Tri-color quinoa", "Avocado", "Sweet potato", "Cucumber", "Red cabbage", "Lemon tahini"],
-    allergens: ["Fish", "Sesame"],
+    allergens: ["Gluten", "Apio", "Mostaza", "Lacteos"],
     heating: "Remove sauce cup. Microwave for 2 to 3 minutes or heat in a skillet over medium heat until warm."
   },
   {

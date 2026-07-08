@@ -315,6 +315,14 @@ h3 {
   background-color: var(--paper);
 }
 
+.meal-photo {
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--paper);
+}
+
 .crop-0 { background-position: 0% 0%; }
 .crop-1 { background-position: 50% 0%; }
 .crop-2 { background-position: 100% 0%; }
