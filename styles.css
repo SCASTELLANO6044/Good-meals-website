@@ -121,15 +121,13 @@ input {
   font-weight: 700;
 }
 
-.brand__sigil {
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--ink);
-  color: #fff;
-  font-family: Georgia, "Times New Roman", serif;
+.brand__logo {
+  width: 142px;
+  height: 88px;
+  display: block;
+  object-fit: contain;
+  transform: scale(1.22);
+  transform-origin: left center;
 }
 
 .nav {
@@ -525,12 +523,12 @@ h3 {
 }
 
 .menu-slide {
-  flex: 0 0 clamp(240px, 24vw, 360px);
+  flex: 0 0 clamp(300px, 32vw, 480px);
   scroll-snap-align: start;
 }
 
 .menu-slide__placeholder {
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 526 / 745;
   width: 100%;
   display: grid;
   place-items: center;
@@ -540,6 +538,48 @@ h3 {
     linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(238, 249, 250, 0.74)),
     repeating-linear-gradient(45deg, rgba(79, 159, 188, 0.12) 0 12px, transparent 12px 24px);
   box-shadow: var(--shadow);
+}
+
+.menu-slide__placeholder.menu-slide__image1 {
+  background-image: url("assets/menu/menu1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.menu-slide__placeholder.menu-slide__image2 {
+  background-image: url("assets/menu/menu2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.menu-slide__placeholder.menu-slide__image3 {
+  background-image: url("assets/menu/menu3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.menu-slide__placeholder.menu-slide__image4 {
+  background-image: url("assets/menu/menu4.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.menu-slide__placeholder.menu-slide__image5 {
+  background-image: url("assets/menu/menu5.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.menu-slide__placeholder.menu-slide__image6 {
+  background-image: url("assets/menu/menu6.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .menu-slide__placeholder span {
@@ -1074,8 +1114,10 @@ h3 {
     padding: 0.75rem 1rem;
   }
 
-  .brand span:last-child {
-    display: none;
+  .brand__logo {
+    width: 78px;
+    height: 50px;
+    transform: scale(1.18);
   }
 
   .nav-cta {
@@ -1109,7 +1151,7 @@ h3 {
   }
 
   .menu-slide {
-    flex-basis: min(78vw, 340px);
+    flex-basis: min(86vw, 420px);
   }
 
   .steps,
