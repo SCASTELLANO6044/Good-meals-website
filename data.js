@@ -26,27 +26,30 @@ window.GOOD_MEALS = [
   },
 
   {
-    slug: "salmon-grain-bowl",
-    name: "Salmon Grain Bowl",
-    crop: 1,
+    slug: "salmon-y-papas",
+    name: "Salmón y papas",
+    crop: 0,
+    image: "assets/meals/salmon-y-papas.JPG",
     calories: 540,
     protein: "48g",
     carbs: "38g",
     fat: "19g",
-    labels: ["High Protein", "Balanced"],
+    labels: ["Pescado", "Alto en proteína"],
     description:
-      "Herb chicken breast with broccolini, basil rice, blistered tomatoes, and pesto.",
+      "Salmón al horno con papas doradas, pimientos, cebolla y zanahoria.",
     ingredients: [
-      "Chicken breast",
-      "Broccolini",
-      "Basil rice",
-      "Cherry tomatoes",
-      "Pesto",
-      "Parmesan",
+      "Salmón",
+      "Papas",
+      "Pimiento rojo",
+      "Pimiento verde",
+      "Cebolla",
+      "Zanahoria",
+      "Aceite de oliva",
+      "Especias mediterráneas",
     ],
-    allergens: ["Milk", "Tree nuts"],
+    allergens: ["Pescado"],
     heating:
-      "Microwave covered for 2 minutes, stir rice, then heat 45 seconds more.",
+      "Calienta en microondas durante 2 a 3 minutos o en sartén a fuego medio hasta que el salmón y las papas estén calientes.",
   },
 
   {
