@@ -8,7 +8,7 @@
   <meta name="description"
     content="Good Meals is a premium meal-prep subscription for fresh, chef-made weekly deliveries you can manage as easily as streaming.">
   <link rel="preload" href="assets/meals/pollo-al-curry.JPG" as="image" type="image/jpeg">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260710">
 </head>
 
 <body>
@@ -313,26 +313,29 @@
           <span>+34 697 797 233</span>
         </div>
       </div>
-      <form class="contact-form" aria-label="Formulario de contacto" data-success="Mensaje enviado"
+      <form class="contact-form" aria-label="Formulario de contacto" method="post" action="/api/contact.php"
+        data-endpoint="/api/contact.php" data-loading="Enviando..." data-success="Mensaje enviado"
         data-status="Mensaje recibido. Te responderemos pronto." data-reveal>
         <div class="field-row">
           <label for="contact-name">Nombre <span>obligatorio</span></label>
-          <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Tu nombre">
+          <input id="contact-name" name="name" type="text" autocomplete="name" minlength="2" maxlength="100" required
+            placeholder="Tu nombre">
         </div>
         <div class="field-grid">
           <div class="field-row">
             <label for="contact-email">Email <span>obligatorio</span></label>
-            <input id="contact-email" name="email" type="email" autocomplete="email" required
+            <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required
               placeholder="tu@email.com">
           </div>
           <div class="field-row">
             <label for="contact-phone">Teléfono <span>obligatorio</span></label>
-            <input id="contact-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+34 600 000 000">
+            <input id="contact-phone" name="phone" type="tel" autocomplete="tel" minlength="6" maxlength="40"
+              pattern="[+()0-9 .-]{6,40}" required placeholder="+34 600 000 000">
           </div>
         </div>
         <div class="field-row">
           <label for="contact-message">Mensaje <span>obligatorio</span></label>
-          <textarea id="contact-message" name="message" rows="6" required
+          <textarea id="contact-message" name="message" rows="6" minlength="10" maxlength="2000" required
             placeholder="Cuéntanos sobre tu plan ideal, dudas o necesidades dietéticas."></textarea>
         </div>
         <button class="button button--primary" type="submit">Enviar mensaje</button>
@@ -376,8 +379,8 @@
     </div>
   </footer>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script src="data.js?v=20260710"></script>
+  <script src="app.js?v=20260710"></script>
 </body>
 
 </html>

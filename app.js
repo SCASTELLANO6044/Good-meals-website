@@ -61,7 +61,7 @@
   }
 
   document.querySelectorAll("form").forEach((form) => {
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (!form.checkValidity()) {
         form.reportValidity();
@@ -71,9 +71,50 @@
       if (!button) return;
       const original = button.textContent;
       const status = form.querySelector(".form-status");
+      const endpoint = form.getAttribute("data-endpoint");
+      const loadingText = form.getAttribute("data-loading") || original;
       const successText = form.getAttribute("data-success") || "Added";
       const statusText = form.getAttribute("data-status") || "";
       button.disabled = true;
+      button.textContent = loadingText;
+
+      if (endpoint) {
+        if (status) status.textContent = "";
+
+        try {
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+          });
+          const result = await response.json().catch(() => ({}));
+
+          if (!response.ok || !result.ok) {
+            const fieldErrors = result.errors ? Object.values(result.errors).join(" ") : "";
+            throw new Error(fieldErrors || result.message || "No pudimos enviar el mensaje. Intentalo de nuevo.");
+          }
+
+          button.textContent = successText;
+          if (status) status.textContent = result.message || statusText;
+          form.reset();
+
+          window.setTimeout(() => {
+            button.disabled = false;
+            button.textContent = original;
+            if (status) status.textContent = "";
+          }, 3000);
+        } catch (error) {
+          button.disabled = false;
+          button.textContent = original;
+          if (status) status.textContent = error.message;
+        }
+
+        return;
+      }
+
       button.textContent = successText;
       if (status) status.textContent = statusText;
       window.setTimeout(() => {
