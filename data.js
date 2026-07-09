@@ -9,10 +9,20 @@ window.GOOD_MEALS = [
     carbs: "51g",
     fat: "24g",
     labels: ["High Protein"],
-    description: "Pollo al curry con arroz integral, brócoli, zanahoria y salsa de coco.",
-    ingredients: ["Atlantic salmon", "Tri-color quinoa", "Avocado", "Sweet potato", "Cucumber", "Red cabbage", "Lemon tahini"],
+    description:
+      "Pollo al curry con arroz integral, brócoli, zanahoria y salsa de coco.",
+    ingredients: [
+      "Atlantic salmon",
+      "Tri-color quinoa",
+      "Avocado",
+      "Sweet potato",
+      "Cucumber",
+      "Red cabbage",
+      "Lemon tahini",
+    ],
     allergens: ["Gluten", "Apio", "Mostaza", "Lacteos"],
-    heating: "Remove sauce cup. Microwave for 2 to 3 minutes or heat in a skillet over medium heat until warm."
+    heating:
+      "Remove sauce cup. Microwave for 2 to 3 minutes or heat in a skillet over medium heat until warm.",
   },
   {
     slug: "chicken-pesto-plate",
@@ -23,10 +33,19 @@ window.GOOD_MEALS = [
     carbs: "38g",
     fat: "19g",
     labels: ["High Protein", "Balanced"],
-    description: "Herb chicken breast with broccolini, basil rice, blistered tomatoes, and pesto.",
-    ingredients: ["Chicken breast", "Broccolini", "Basil rice", "Cherry tomatoes", "Pesto", "Parmesan"],
+    description:
+      "Herb chicken breast with broccolini, basil rice, blistered tomatoes, and pesto.",
+    ingredients: [
+      "Chicken breast",
+      "Broccolini",
+      "Basil rice",
+      "Cherry tomatoes",
+      "Pesto",
+      "Parmesan",
+    ],
     allergens: ["Milk", "Tree nuts"],
-    heating: "Microwave covered for 2 minutes, stir rice, then heat 45 seconds more."
+    heating:
+      "Microwave covered for 2 minutes, stir rice, then heat 45 seconds more.",
   },
   {
     slug: "vegan-lentil-curry",
@@ -37,10 +56,20 @@ window.GOOD_MEALS = [
     carbs: "79g",
     fat: "16g",
     labels: ["Vegan", "Dairy Free"],
-    description: "Golden lentil curry with spinach, brown rice, cilantro, and bright lime.",
-    ingredients: ["Red lentils", "Brown rice", "Coconut milk", "Spinach", "Cilantro", "Lime", "Turmeric"],
+    description:
+      "Golden lentil curry with spinach, brown rice, cilantro, and bright lime.",
+    ingredients: [
+      "Red lentils",
+      "Brown rice",
+      "Coconut milk",
+      "Spinach",
+      "Cilantro",
+      "Lime",
+      "Turmeric",
+    ],
     allergens: ["Coconut"],
-    heating: "Microwave for 3 minutes, stir halfway, and finish with lime after heating."
+    heating:
+      "Microwave for 3 minutes, stir halfway, and finish with lime after heating.",
   },
   {
     slug: "keto-steak-greens",
@@ -51,10 +80,19 @@ window.GOOD_MEALS = [
     carbs: "14g",
     fat: "46g",
     labels: ["Keto", "High Protein"],
-    description: "Sliced steak with arugula, mushrooms, roasted peppers, and charred lemon.",
-    ingredients: ["Grass-fed steak", "Arugula", "Mushrooms", "Roasted peppers", "Herb oil", "Lemon"],
+    description:
+      "Sliced steak with arugula, mushrooms, roasted peppers, and charred lemon.",
+    ingredients: [
+      "Grass-fed steak",
+      "Arugula",
+      "Mushrooms",
+      "Roasted peppers",
+      "Herb oil",
+      "Lemon",
+    ],
     allergens: [],
-    heating: "Warm steak and vegetables in a skillet for 3 minutes. Keep greens chilled if preferred."
+    heating:
+      "Warm steak and vegetables in a skillet for 3 minutes. Keep greens chilled if preferred.",
   },
   {
     slug: "tofu-soba-salad",
@@ -65,10 +103,20 @@ window.GOOD_MEALS = [
     carbs: "58g",
     fat: "18g",
     labels: ["Vegan", "Plant Protein"],
-    description: "Crispy tofu, soba noodles, edamame, cabbage, carrot, and ginger sesame dressing.",
-    ingredients: ["Tofu", "Soba noodles", "Edamame", "Cabbage", "Carrot", "Scallion", "Ginger sesame dressing"],
+    description:
+      "Crispy tofu, soba noodles, edamame, cabbage, carrot, and ginger sesame dressing.",
+    ingredients: [
+      "Tofu",
+      "Soba noodles",
+      "Edamame",
+      "Cabbage",
+      "Carrot",
+      "Scallion",
+      "Ginger sesame dressing",
+    ],
     allergens: ["Soy", "Wheat", "Sesame"],
-    heating: "Enjoy chilled or microwave noodles and tofu for 90 seconds before adding dressing."
+    heating:
+      "Enjoy chilled or microwave noodles and tofu for 90 seconds before adding dressing.",
   },
   {
     slug: "turkey-chili-avocado",
@@ -79,9 +127,19 @@ window.GOOD_MEALS = [
     carbs: "44g",
     fat: "28g",
     labels: ["High Protein", "Gluten Free"],
-    description: "Slow-simmered turkey chili with beans, tomato, poblano, scallion, and avocado.",
-    ingredients: ["Ground turkey", "Kidney beans", "Tomatoes", "Poblano", "Avocado", "Scallion", "Cumin"],
+    description:
+      "Slow-simmered turkey chili with beans, tomato, poblano, scallion, and avocado.",
+    ingredients: [
+      "Ground turkey",
+      "Kidney beans",
+      "Tomatoes",
+      "Poblano",
+      "Avocado",
+      "Scallion",
+      "Cumin",
+    ],
     allergens: [],
-    heating: "Microwave chili for 3 minutes, stirring halfway. Add avocado after heating."
-  }
+    heating:
+      "Microwave chili for 3 minutes, stirring halfway. Add avocado after heating.",
+  },
 ];
