@@ -24,9 +24,10 @@ window.GOOD_MEALS = [
     heating:
       "Remove sauce cup. Microwave for 2 to 3 minutes or heat in a skillet over medium heat until warm.",
   },
+
   {
-    slug: "chicken-pesto-plate",
-    name: "Chicken Pesto Plate",
+    slug: "salmon-grain-bowl",
+    name: "Salmon Grain Bowl",
     crop: 1,
     calories: 540,
     protein: "48g",
@@ -47,6 +48,7 @@ window.GOOD_MEALS = [
     heating:
       "Microwave covered for 2 minutes, stir rice, then heat 45 seconds more.",
   },
+
   {
     slug: "vegan-lentil-curry",
     name: "Vegan Lentil Curry",
@@ -71,6 +73,7 @@ window.GOOD_MEALS = [
     heating:
       "Microwave for 3 minutes, stir halfway, and finish with lime after heating.",
   },
+
   {
     slug: "keto-steak-greens",
     name: "Keto Steak Greens",
@@ -94,6 +97,7 @@ window.GOOD_MEALS = [
     heating:
       "Warm steak and vegetables in a skillet for 3 minutes. Keep greens chilled if preferred.",
   },
+
   {
     slug: "tofu-soba-salad",
     name: "Tofu Soba Salad",
@@ -118,6 +122,7 @@ window.GOOD_MEALS = [
     heating:
       "Enjoy chilled or microwave noodles and tofu for 90 seconds before adding dressing.",
   },
+  
   {
     slug: "turkey-chili-avocado",
     name: "Turkey Chili Avocado",
