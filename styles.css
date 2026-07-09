@@ -295,12 +295,12 @@ h3 {
 }
 
 .hero__image {
-  width: min(100%, 512px);
+  width: min(112%, 592px);
   aspect-ratio: 1;
   margin-left: auto;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  transform: rotate(2deg);
+  transform: translateX(-50px) rotate(2deg);
 }
 
 .meal-crop {
