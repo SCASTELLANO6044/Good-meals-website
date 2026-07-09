@@ -1,358 +1,386 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Good Meals | Subscripción semanal de comidas hechas por nuestros chefs</title>
-    <meta name="description" content="Good Meals is a premium meal-prep subscription for fresh, chef-made weekly deliveries you can manage as easily as streaming.">
-    <link rel="preload" href="assets/good-meals-food-sheet.webp" as="image" type="image/webp">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <div class="loader" aria-hidden="true">
-      <div class="loader__mark">GM</div>
-      <div class="loader__name">GOOD MEALS</div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Good Meals | Subscripción semanal de comidas hechas por nuestros chefs</title>
+  <meta name="description"
+    content="Good Meals is a premium meal-prep subscription for fresh, chef-made weekly deliveries you can manage as easily as streaming.">
+  <link rel="preload" href="assets/good-meals-food-sheet.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="loader" aria-hidden="true">
+    <div class="loader__mark">GM</div>
+    <div class="loader__name">GOOD MEALS</div>
+  </div>
+
+  <header class="site-header" data-reveal>
+    <a class="brand" href="index.html" aria-label="Good Meals home">
+      <img class="brand__logo" src="assets/good-meals-logo-transparent-bg.png" alt="Good Meals">
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#meals">Popular Meals</a>
+      <a href="#menu">Menú</a>
+      <a href="#plans">Planes</a>
+      <a href="#faq">Preguntas Frecuentes</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+    <a class="nav-cta" href="#plans">Empieza Ahora</a>
+  </header>
+
+  <main>
+    <section class="hero section-pad" id="top">
+      <div class="hero__media" data-reveal>
+        <div class="hero__image meal-crop crop-0" role="img"
+          aria-label="Fresh salmon grain bowl with quinoa, avocado, and roasted vegetables"></div>
+        <div class="hero__metric floating-card">
+          <span>Desde</span>
+          <strong>7€ por comida</strong>
+        </div>
+      </div>
+      <div class="hero__content" data-reveal>
+        <p class="eyebrow">Platos frescos por subscripción</p>
+        <h1>Netflix, pero para la comida.</h1>
+        <p class="hero__lede">Suscríbete una vez, elige tu menú semanal, y recibe comidas hechas por chefs, diseñadas
+          para días ocupados, hábitos saludables y cero complicaciones.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#plans">Comieza tu subscripción</a>
+          <a class="button button--secondary" href="#meals">Explorar Comidas</a>
+        </div>
+        <div class="proof-row" aria-label="Good Meals highlights">
+          <span>Aprobado por nutricionistas</span>
+          <span>Pausa en cualquier momento</span>
+          <span>Entregado en frío</span>
+        </div>
+      </div>
+      <div class="hero__word" aria-hidden="true">GOOD MEALS</div>
+    </section>
+
+    <section class="intro-band" data-reveal>
+      <div>
+        <p class="eyebrow">Una forma más tranquila de comer bien</p>
+        <h2>Platos frescos semanales, gestionados en minutos.</h2>
+      </div>
+      <p>Good Meals trae la simplicidad de suscripción de tu servicio de streaming favorito a la parte de la vida que
+        generalmente roba el tiempo: decidir qué cocinar.</p>
+    </section>
+
+    <section class="section-pad" id="how">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Cómo funciona</p>
+        <h2>Tu semana, ya gestionada.</h2>
+      </div>
+      <div class="steps">
+        <article class="step-card" data-reveal>
+          <span>01</span>
+          <h3>Elige tu plan</h3>
+          <p>Selecciona la cantidad de comidas que se ajuste a tu semana, desde una cobertura más ligera hasta días
+            completos.</p>
+        </article>
+        <article class="step-card" data-reveal>
+          <span>02</span>
+          <h3>Selecciona tus comidas</h3>
+          <p>Construye un menú semanal a partir de opciones altas en proteína, veganas, cetogénicas, sin gluten y
+            equilibradas.</p>
+        </article>
+        <article class="step-card" data-reveal>
+          <span>03</span>
+          <h3>Recibe entregas frescas</h3>
+          <p>Las comidas llegan en frío en bandejas aislantes ecológicas.</p>
+        </article>
+        <article class="step-card" data-reveal>
+          <span>04</span>
+          <h3>Calienta y disfruta</h3>
+          <p>Las comidas de calidad restaurante están listas en tres minutos, sin necesidad de añadir pasos extra.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-pad dark-section" id="meals">
+      <div class="section-heading section-heading--split" data-reveal>
+        <div>
+          <p class="eyebrow">Popular Meals</p>
+          <h2>Menús hechos por chefs que hacen que comer saludable sea fácil.</h2>
+        </div>
+        <a class="button button--light" href="#plans">Añade comidas al plan</a>
+      </div>
+      <div class="meal-grid" id="featuredMeals"></div>
+    </section>
+
+    <section class="section-pad menu-showcase" id="menu">
+      <div class="section-heading section-heading--split" data-reveal>
+        <div>
+          <p class="eyebrow">Menú semanal</p>
+          <h2>Todos nuestros platos.</h2>
+        </div>
+        <div class="carousel-controls" aria-label="Controles del carrusel de menú">
+          <button class="carousel-button" type="button" data-carousel-prev aria-label="Ver menú anterior">‹</button>
+          <button class="carousel-button" type="button" data-carousel-next aria-label="Ver menú siguiente">›</button>
+        </div>
+      </div>
+      <div class="menu-carousel" data-reveal>
+        <div class="menu-carousel__track" tabindex="0" aria-label="Carrusel de fotos del menú">
+          <article class="menu-slide">
+            <div class="menu-slide__placeholder menu-slide__image1">
+            </div>
+          </article>
+          <article class="menu-slide">
+            <div class="menu-slide__placeholder menu-slide__image2">
+            </div>
+          </article>
+          <article class="menu-slide">
+            <div class="menu-slide__placeholder menu-slide__image3">
+            </div>
+          </article>
+          <article class="menu-slide">
+            <div class="menu-slide__placeholder menu-slide__image4">
+            </div>
+          </article>
+          <article class="menu-slide">
+            <div class="menu-slide__placeholder menu-slide__image4">
+            </div>
+          </article>
+          <article class="menu-slide">
+            <div class="menu-slide__placeholder menu-slide__image5">
+            </div>
+          </article>
+          <article class="menu-slide">
+            <div class="menu-slide__placeholder menu-slide__image6">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad why">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">¿Por qué elegirnos?</p>
+        <h2>Sistemas de comida premium para personas con agendas ocupadas.</h2>
+      </div>
+      <div class="why-grid">
+        <article data-reveal>
+          <h3>Comidas preparadas por chefs</h3>
+          <p>Cada menú es construido por profesionales culinarios para garantizar sabor, y textura.</p>
+        </article>
+        <article data-reveal>
+          <h3>Ingredientes frescos</h3>
+          <p>Comidas sazonadas, proteinas limpias, y granos enteros son preparados de manera fresca cada semana.</p>
+        </article>
+        <article data-reveal>
+          <h3>Aprobadas por nutricionistas</h3>
+          <p>Los macros son claros, las porciones están equilibradas, y cada comida está diseñada para aportar energía
+            constante.</p>
+        </article>
+        <article data-reveal>
+          <h3>Subscripciones flexibles</h3>
+          <p>Salta semanas, pausa, intercambia comidas, o cambia tu recuento.</p>
+        </article>
+        <article data-reveal>
+          <h3>Cancela en cualquier momento</h3>
+          <p>No hay compromiso a largo plazo. Good Meals está diseñado para adaptarse a tu vida, no para atraparte
+            dentro de un plan.</p>
+        </article>
+        <article data-reveal>
+          <h3>Empaquetado ecológico</h3>
+          <p>Traslados reciclables y forros aislantes protegen la frescura mientras reducen el desperdicio innecesario.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-pad plans" id="plans">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Subscription plans</p>
+        <h2>Selecciona tu plan mensual.</h2>
+      </div>
+      <div class="plan-grid">
+        <article class="plan-card" data-reveal>
+          <p class="plan-card__label">Essential</p>
+          <h3>5 comidas/semana</h3>
+          <p class="price">7.50€ <span>Por comida</span></p>
+          <ul>
+            <li>Ideal para cubrir el almuerzo.</li>
+            <li>Elige entre más de 43 platos.</li>
+            <li>Pausa o salta cuando quieras.</li>
+            <li>37.50€/mes</li>
+          </ul>
+          <a class="button button--secondary" href="#contact">Start Essential</a>
+        </article>
+        <article class="plan-card plan-card--featured" data-reveal>
+          <div class="recommended">Recomendado</div>
+          <p class="plan-card__label">Signature</p>
+          <h3>10 comidas/semana</h3>
+          <p class="price">6.87€ <span>por comida</span></p>
+          <ul>
+            <li>Todas las ventajas del plan Essential.</li>
+            <li>El mejor plan para complementar los fines de semana.</li>
+            <li>Prioridad de acceso a nuevas recetas.</li>
+            <li>68.70€/mes</li>
+          </ul>
+          <a class="button button--primary" href="#contact">Start Signature</a>
+        </article>
+        <article class="plan-card" data-reveal>
+          <p class="plan-card__label">Complete</p>
+          <h3>14 comidas/semana</h3>
+          <p class="price">6.40€ <span>por comida</span></p>
+          <ul>
+            <li>Todas las ventajas del plan Signature.</li>
+            <li>Complementos de estilo familiar</li>
+            <li>89.60€/semana</li>
+          </ul>
+          <a class="button button--secondary" href="#contact">Start Complete</a>
+        </article>
+      </div>
+      <div class="compare" data-reveal>
+        <span>Siempre cabe la posibilidad de pedir comidas individuales al precio que aparece en el menú.</span>
+      </div>
+    </section>
+
+    <section class="section-pad testimonials">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Historias de nuestros clientes</p>
+        <h2>Más tiempo, mejor comida, y menos problemas.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <article class="testimonial-card" data-reveal>
+          <div class="avatar">IR</div>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"Good Meals ha hecho que mi semana de trabajo sea algo manejable. Como mejor, gasto menos tiempo
+            planeando."</p>
+          <strong>Isabel R.</strong>
+        </article>
+        <article class="testimonial-card" data-reveal>
+          <div class="avatar">AH</div>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"El control de suscripción es la razón por la que me quedé. Cambiar comidas es rápido, y la comida sabe
+            como si hubiera sido cocinada ese día."</p>
+          <strong>Andrea H.</strong>
+        </article>
+        <article class="testimonial-card" data-reveal>
+          <div class="avatar">JL</div>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"Se siente de lujo sin ser pretencioso. Las macros son claras, las comidas son frescas, y mi nevera
+            finalmente funciona para mí."</p>
+          <strong>Julian L.</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-pad faq" id="faq">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">FAQ</p>
+        <h2>Aclaramos tus dudas.</h2>
+      </div>
+      <div class="faq-list">
+        <details data-reveal>
+          <summary>¿Puedo pausar o cancelar en cualquier momento?</summary>
+          <p>Sí. Puedes pausar, saltar, cambiar la cantidad de comidas o cancelar tu cuenta antes del corte semanal.</p>
+        </details>
+        <details data-reveal>
+          <summary>¿Son las comidas frescas o congeladas?</summary>
+          <p>Las comidas se entregan frescas y en frío. Están diseñadas para recalentarse maravillosamente en unos tres
+            minutos.</p>
+        </details>
+        <details data-reveal>
+          <summary>¿Puedo filtrar por preferencias dietéticas?</summary>
+          <p>Sí. Puedes navegar por comidas altas en proteínas, veganas, cetogénicas, sin gluten, sin lácteos y
+            equilibradas.</p>
+        </details>
+        <details data-reveal>
+          <summary>¿Cuándo llegan las entregas?</summary>
+          <p>La mayoría de los clientes reciben comidas una vez a la semana. Los horarios de entrega se seleccionan
+            durante la configuración de la suscripción.</p>
+        </details>
+        <details data-reveal>
+          <summary>¿Hacen entregas a diferentes islas?</summary>
+          <p>Sí, hacemos entregas a Gran Canaria, Tenerife, Fuerteventura y Lanzarote.</p>
+        </details>
+        <details data-reveal>
+          <summary>¿Cuál es la fecha de vencimiento de las comidas?</summary>
+          <p>Todos nuestros platos tienen una fecha de vencimiento de 11 días en nevera, aunque siempre se pueden
+            congelar para extender su vida útil.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section-pad contact" id="contact">
+      <div class="contact__intro" data-reveal>
+        <p class="eyebrow">Contacto</p>
+        <h2>Cuéntanos qué necesitas para comer mejor esta semana.</h2>
+        <p>Déjanos tus datos y tu mensaje. El equipo de Good Meals revisará tu solicitud y te responderá con una
+          propuesta clara.</p>
+        <div class="contact__details">
+          <span>info@goodmeals.es</span>
+          <span>+34 697 797 233</span>
+        </div>
+      </div>
+      <form class="contact-form" aria-label="Formulario de contacto" data-success="Mensaje enviado"
+        data-status="Mensaje recibido. Te responderemos pronto." data-reveal>
+        <div class="field-row">
+          <label for="contact-name">Nombre <span>obligatorio</span></label>
+          <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Tu nombre">
+        </div>
+        <div class="field-grid">
+          <div class="field-row">
+            <label for="contact-email">Email <span>obligatorio</span></label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required
+              placeholder="tu@email.com">
+          </div>
+          <div class="field-row">
+            <label for="contact-phone">Teléfono <span>obligatorio</span></label>
+            <input id="contact-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+34 600 000 000">
+          </div>
+        </div>
+        <div class="field-row">
+          <label for="contact-message">Mensaje <span>obligatorio</span></label>
+          <textarea id="contact-message" name="message" rows="6" required
+            placeholder="Cuéntanos sobre tu plan ideal, dudas o necesidades dietéticas."></textarea>
+        </div>
+        <button class="button button--primary" type="submit">Enviar mensaje</button>
+        <p class="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div>
+        <h2>¿Listo para mejorar tu semana?</h2>
+        <p>Prueba nuestros platos frescos hechos por chefs y entregados semanalmente, y gestiona todo desde una sola
+          suscripción.</p>
+      </div>
+      <form class="newsletter" aria-label="Newsletter signup">
+        <label for="email">Newsletter</label>
+        <div>
+          <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+          <button type="submit">Join</button>
+        </div>
+      </form>
     </div>
-
-    <header class="site-header" data-reveal>
-      <a class="brand" href="index.html" aria-label="Good Meals home">
-        <img class="brand__logo" src="assets/good-meals-logo-transparent-bg.png" alt="Good Meals">
-      </a>
-      <nav class="nav" aria-label="Primary navigation">
+    <div class="footer-word">GOOD MEALS</div>
+    <div class="footer-bottom">
+      <span>info@goodmeals.es</span>
+      <nav aria-label="Footer navigation">
+        <a href="#top">Home</a>
         <a href="#meals">Popular Meals</a>
-        <a href="#menu">Menú</a>
-        <a href="#plans">Planes</a>
-        <a href="#faq">Preguntas Frecuentes</a>
-        <a href="#contact">Contacto</a>
+        <a href="#menu">Menu</a>
+        <a href="#plans">Plans</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <a class="nav-cta" href="#plans">Empieza Ahora</a>
-    </header>
+      <span>
+        <a href="https://www.instagram.com/good.meals_">Instagram</a>
+        / <a href="https://api.whatsapp.com/send/?phone=34697797233&text&type=phone_number&app_absent=0">WhatsApp</a>
+        / <a href="https://www.tiktok.com/@good.meals_">TikTok</a>
+      </span>
+    </div>
+  </footer>
 
-    <main>
-      <section class="hero section-pad" id="top">
-        <div class="hero__media" data-reveal>
-          <div class="hero__image meal-crop crop-0" role="img" aria-label="Fresh salmon grain bowl with quinoa, avocado, and roasted vegetables"></div>
-          <div class="hero__metric floating-card">
-            <span>Desde</span>
-            <strong>7€ por comida</strong>
-          </div>
-        </div>
-        <div class="hero__content" data-reveal>
-          <p class="eyebrow">Platos frescos por subscripción</p>
-          <h1>Netflix, pero para la comida.</h1>
-          <p class="hero__lede">Suscríbete una vez, elige tu menú semanal, y recibe comidas hechas por chefs, diseñadas para días ocupados, hábitos saludables y cero complicaciones.</p>
-          <div class="hero__actions">
-            <a class="button button--primary" href="#plans">Comieza tu subscripción</a>
-            <a class="button button--secondary" href="#meals">Explorar Comidas</a>
-          </div>
-          <div class="proof-row" aria-label="Good Meals highlights">
-            <span>Aprobado por nutricionistas</span>
-            <span>Pausa en cualquier momento</span>
-            <span>Entregado en frío</span>
-          </div>
-        </div>
-        <div class="hero__word" aria-hidden="true">GOOD MEALS</div>
-      </section>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
 
-      <section class="intro-band" data-reveal>
-        <div>
-          <p class="eyebrow">Una forma más tranquila de comer bien</p>
-          <h2>Platos frescos semanales, gestionados en minutos.</h2>
-        </div>
-        <p>Good Meals trae la simplicidad de suscripción de tu servicio de streaming favorito a la parte de la vida que generalmente roba el tiempo: decidir qué cocinar.</p>
-      </section>
-
-      <section class="section-pad" id="how">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Cómo funciona</p>
-          <h2>Tu semana, ya gestionada.</h2>
-        </div>
-        <div class="steps">
-          <article class="step-card" data-reveal>
-            <span>01</span>
-            <h3>Elige tu plan</h3>
-            <p>Selecciona la cantidad de comidas que se ajuste a tu semana, desde una cobertura más ligera hasta días completos.</p>
-          </article>
-          <article class="step-card" data-reveal>
-            <span>02</span>
-            <h3>Selecciona tus comidas</h3>
-            <p>Construye un menú semanal a partir de opciones altas en proteína, veganas, cetogénicas, sin gluten y equilibradas.</p>
-          </article>
-          <article class="step-card" data-reveal>
-            <span>03</span>
-            <h3>Recibe entregas frescas</h3>
-            <p>Las comidas llegan en frío en bandejas aislantes ecológicas.</p>
-          </article>
-          <article class="step-card" data-reveal>
-            <span>04</span>
-            <h3>Calienta y disfruta</h3>
-            <p>Las comidas de calidad restaurante están listas en tres minutos, sin necesidad de añadir pasos extra.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-pad dark-section" id="meals">
-        <div class="section-heading section-heading--split" data-reveal>
-          <div>
-            <p class="eyebrow">Popular Meals</p>
-            <h2>Menús hechos por chefs que hacen que comer saludable sea fácil.</h2>
-          </div>
-          <a class="button button--light" href="#plans">Añade comidas al plan</a>
-        </div>
-        <div class="meal-grid" id="featuredMeals"></div>
-      </section>
-
-      <section class="section-pad menu-showcase" id="menu">
-        <div class="section-heading section-heading--split" data-reveal>
-          <div>
-            <p class="eyebrow">Menú semanal</p>
-            <h2>Todos nuestros platos.</h2>
-          </div>
-          <div class="carousel-controls" aria-label="Controles del carrusel de menú">
-            <button class="carousel-button" type="button" data-carousel-prev aria-label="Ver menú anterior">‹</button>
-            <button class="carousel-button" type="button" data-carousel-next aria-label="Ver menú siguiente">›</button>
-          </div>
-        </div>
-        <div class="menu-carousel" data-reveal>
-          <div class="menu-carousel__track" tabindex="0" aria-label="Carrusel de fotos del menú">
-            <article class="menu-slide">
-              <div class="menu-slide__placeholder menu-slide__image1">
-              </div>
-            </article>
-            <article class="menu-slide">
-              <div class="menu-slide__placeholder menu-slide__image2">
-              </div>
-            </article>
-            <article class="menu-slide">
-              <div class="menu-slide__placeholder menu-slide__image3">
-              </div>
-            </article>
-            <article class="menu-slide">
-              <div class="menu-slide__placeholder menu-slide__image4">
-              </div>
-            </article>
-            <article class="menu-slide">
-              <div class="menu-slide__placeholder menu-slide__image4">
-              </div>
-            </article>
-            <article class="menu-slide">
-              <div class="menu-slide__placeholder menu-slide__image5">
-              </div>
-            </article>
-            <article class="menu-slide">
-              <div class="menu-slide__placeholder menu-slide__image6">
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-pad why">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">¿Por qué elegirnos?</p>
-          <h2>Sistemas de comida premium para personas con agendas ocupadas.</h2>
-        </div>
-        <div class="why-grid">
-          <article data-reveal>
-            <h3>Comidas preparadas por chefs</h3>
-            <p>Cada menú es construido por profesionales culinarios para garantizar sabor, y textura.</p>
-          </article>
-          <article data-reveal>
-            <h3>Ingredientes frescos</h3>
-            <p>Comidas sazonadas, proteinas limpias, y granos enteros son preparados de manera fresca cada semana.</p>
-          </article>
-          <article data-reveal>
-            <h3>Aprobadas por nutricionistas</h3>
-            <p>Los macros son claros, las porciones están equilibradas, y cada comida está diseñada para aportar energía constante.</p>
-          </article>
-          <article data-reveal>
-            <h3>Subscripciones flexibles</h3>
-            <p>Salta semanas, pausa, intercambia comidas, o cambia tu recuento.</p>
-          </article>
-          <article data-reveal>
-            <h3>Cancela en cualquier momento</h3>
-            <p>No hay compromiso a largo plazo. Good Meals está diseñado para adaptarse a tu vida, no para atraparte dentro de un plan.</p>
-          </article>
-          <article data-reveal>
-            <h3>Empaquetado ecológico</h3>
-            <p>Traslados reciclables y forros aislantes protegen la frescura mientras reducen el desperdicio innecesario.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-pad plans" id="plans">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Subscription plans</p>
-          <h2>Selecciona tu plan mensual.</h2>
-        </div>
-        <div class="plan-grid">
-          <article class="plan-card" data-reveal>
-            <p class="plan-card__label">Essential</p>
-            <h3>5 comidas/semana</h3>
-            <p class="price">7.50€ <span>Por comida</span></p>
-            <ul>
-              <li>Ideal para cubrir el almuerzo.</li>
-              <li>Elige entre más de 43 platos.</li>
-              <li>Pausa o salta cuando quieras.</li>
-              <li>37.50€/mes</li>
-            </ul>
-            <a class="button button--secondary" href="#contact">Start Essential</a>
-          </article>
-          <article class="plan-card plan-card--featured" data-reveal>
-            <div class="recommended">Recomendado</div>
-            <p class="plan-card__label">Signature</p>
-            <h3>10 comidas/semana</h3>
-            <p class="price">6.87€ <span>por comida</span></p>
-            <ul>
-              <li>Todas las ventajas del plan Essential.</li>
-              <li>El mejor plan para complementar los fines de semana.</li>
-              <li>Prioridad de acceso a nuevas recetas.</li>
-              <li>68.70€/mes</li>
-            </ul>
-            <a class="button button--primary" href="#contact">Start Signature</a>
-          </article>
-          <article class="plan-card" data-reveal>
-            <p class="plan-card__label">Complete</p>
-            <h3>14 comidas/semana</h3>
-            <p class="price">6.40€ <span>por comida</span></p>
-            <ul>
-              <li>Todas las ventajas del plan Signature.</li>
-              <li>Complementos de estilo familiar</li>
-              <li>89.60€/semana</li>
-            </ul>
-            <a class="button button--secondary" href="#contact">Start Complete</a>
-          </article>
-        </div>
-        <div class="compare" data-reveal>
-          <span>Siempre cabe la posibilidad de pedir comidas individuales al precio que aparece en el menú.</span>
-        </div>
-      </section>
-
-      <section class="section-pad testimonials">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Historias de nuestros clientes</p>
-          <h2>Más tiempo, mejor comida, y menos problemas.</h2>
-        </div>
-        <div class="testimonial-grid">
-          <article class="testimonial-card" data-reveal>
-            <div class="avatar">IR</div>
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p>"Good Meals ha hecho que mi semana de trabajo sea algo manejable. Como mejor, gasto menos tiempo planeando."</p>
-            <strong>Isabel R.</strong>
-          </article>
-          <article class="testimonial-card" data-reveal>
-            <div class="avatar">AH</div>
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p>"El control de suscripción es la razón por la que me quedé. Cambiar comidas es rápido, y la comida sabe como si hubiera sido cocinada ese día."</p>
-            <strong>Andrea H.</strong>
-          </article>
-          <article class="testimonial-card" data-reveal>
-            <div class="avatar">JL</div>
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p>"Se siente de lujo sin ser pretencioso. Las macros son claras, las comidas son frescas, y mi nevera finalmente funciona para mí."</p>
-            <strong>Julian L.</strong>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-pad faq" id="faq">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">FAQ</p>
-          <h2>Aclaramos tus dudas.</h2>
-        </div>
-        <div class="faq-list">
-          <details data-reveal>
-            <summary>¿Puedo pausar o cancelar en cualquier momento?</summary>
-            <p>Sí. Puedes pausar, saltar, cambiar la cantidad de comidas o cancelar tu cuenta antes del corte semanal.</p>
-          </details>
-          <details data-reveal>
-            <summary>¿Son las comidas frescas o congeladas?</summary>
-            <p>Las comidas se entregan frescas y en frío. Están diseñadas para recalentarse maravillosamente en unos tres minutos.</p>
-          </details>
-          <details data-reveal>
-            <summary>¿Puedo filtrar por preferencias dietéticas?</summary>
-            <p>Sí. Puedes navegar por comidas altas en proteínas, veganas, cetogénicas, sin gluten, sin lácteos y equilibradas.</p>
-          </details>
-          <details data-reveal>
-            <summary>¿Cuándo llegan las entregas?</summary>
-            <p>La mayoría de los clientes reciben comidas una vez a la semana. Los horarios de entrega se seleccionan durante la configuración de la suscripción.</p>
-          </details>
-          <details data-reveal>
-            <summary>¿Hacen entregas a diferentes islas?</summary>
-            <p>Sí, hacemos entregas a Gran Canaria, Tenerife, Fuerteventura y Lanzarote.</p>
-          </details>
-          <details data-reveal>
-            <summary>¿Cuál es la fecha de vencimiento de las comidas?</summary>
-            <p>Todos nuestros platos tienen una fecha de vencimiento de 11 días en nevera, aunque siempre se pueden congelar para extender su vida útil.</p>
-          </details>
-        </div>
-      </section>
-
-      <section class="section-pad contact" id="contact">
-        <div class="contact__intro" data-reveal>
-          <p class="eyebrow">Contacto</p>
-          <h2>Cuéntanos qué necesitas para comer mejor esta semana.</h2>
-          <p>Déjanos tus datos y tu mensaje. El equipo de Good Meals revisará tu solicitud y te responderá con una propuesta clara.</p>
-          <div class="contact__details">
-            <span>info@goodmeals.es</span>
-            <span>+34 697 797 233</span>
-          </div>
-        </div>
-        <form class="contact-form" aria-label="Formulario de contacto" data-success="Mensaje enviado" data-status="Mensaje recibido. Te responderemos pronto." data-reveal>
-          <div class="field-row">
-            <label for="contact-name">Nombre <span>obligatorio</span></label>
-            <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Tu nombre">
-          </div>
-          <div class="field-grid">
-            <div class="field-row">
-              <label for="contact-email">Email <span>obligatorio</span></label>
-              <input id="contact-email" name="email" type="email" autocomplete="email" required placeholder="tu@email.com">
-            </div>
-            <div class="field-row">
-              <label for="contact-phone">Teléfono <span>obligatorio</span></label>
-              <input id="contact-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+34 600 000 000">
-            </div>
-          </div>
-          <div class="field-row">
-            <label for="contact-message">Mensaje <span>obligatorio</span></label>
-            <textarea id="contact-message" name="message" rows="6" required placeholder="Cuéntanos sobre tu plan ideal, dudas o necesidades dietéticas."></textarea>
-          </div>
-          <button class="button button--primary" type="submit">Enviar mensaje</button>
-          <p class="form-status" aria-live="polite"></p>
-        </form>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-top">
-        <div>
-          <h2>¿Listo para mejorar tu semana?</h2>
-          <p>Prueba nuestros platos frescos  hechos por chefs y entregados semanalmente, y gestiona todo desde una sola suscripción.</p>
-        </div>
-        <form class="newsletter" aria-label="Newsletter signup">
-          <label for="email">Newsletter</label>
-          <div>
-            <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
-            <button type="submit">Join</button>
-          </div>
-        </form>
-      </div>
-      <div class="footer-word">GOOD MEALS</div>
-      <div class="footer-bottom">
-        <span>info@goodmeals.es</span>
-        <nav aria-label="Footer navigation">
-          <a href="#top">Home</a>
-          <a href="#meals">Popular Meals</a>
-          <a href="#menu">Menu</a>
-          <a href="#plans">Plans</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <span> <a href="https://www.instagram.com/good.meals_">Instagram</a>  / <a href="https://api.whatsapp.com/send/?phone=34697797233&text&type=phone_number&app_absent=0">WhatsApp</a> / <a href="https://www.tiktok.com/@good.meals_">TikTok</a></span>
-      </div>
-    </footer>
-
-    <script src="data.js"></script>
-    <script src="app.js"></script>
-  </body>
 </html>
