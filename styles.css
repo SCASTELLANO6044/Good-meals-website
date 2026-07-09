@@ -11,7 +11,7 @@
   --green: #2d4535;
   --red: #9fd5df;
   --shadow: 0 24px 80px rgba(31, 38, 45, 0.12);
-  --radius: 8px;
+  --radius: 1rem;
 }
 
 * {
@@ -126,7 +126,7 @@ input {
   height: 88px;
   display: block;
   object-fit: contain;
-  transform: scale(1.22);
+  transform: scale(1.5);
   transform-origin: left center;
 }
 
@@ -300,7 +300,7 @@ h3 {
   margin-left: auto;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  transform: translateX(-50px) rotate(2deg);
+  transform: translateX(-50px) translateY(-25px) rotate(2deg);
 }
 
 .meal-crop {
