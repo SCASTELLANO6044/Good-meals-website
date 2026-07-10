@@ -8,7 +8,7 @@ window.GOOD_MEALS = [
     protein: "50g",
     carbs: "39g",
     fat: "26g",
-    labels: ["Pollo","Alto en proteína"],
+    labels: ["Pollo", "Alto en proteína", "Comida especiada"],
     description: "Arroz blanco con delicioso pollo al curry.",
     ingredients: [
       "Arroz blanco",
@@ -29,7 +29,7 @@ window.GOOD_MEALS = [
     protein: "44g",
     carbs: "26g",
     fat: "33g",
-    labels: ["Pescado", "Alto en proteína"],
+    labels: ["Pescado", "Alto en proteína", "Rico en Omega-3", "Horno"],
     description:
       "Salmón al horno con papas doradas, pimientos, cebolla y zanahoria.",
     ingredients: [
@@ -56,7 +56,7 @@ window.GOOD_MEALS = [
     protein: "58g",
     carbs: "37g",
     fat: "15g",
-    labels: ["Pescado", "Sin lácteos"],
+    labels: ["Pescado", "Sin lácteos", "Alto en proteína", "Pasta"],
     description:
       "Pasta penne con boloñesa de atún, salsa de tomate casera y verduras.",
     ingredients: [
@@ -83,7 +83,7 @@ window.GOOD_MEALS = [
     protein: "42g",
     carbs: "7g",
     fat: "15g",
-    labels: ["Pescado", "Bajo en carbohidratos"],
+    labels: ["Pescado", "Bajo en carbohidratos","Bajo en calorías", "Alto en proteína", "Horno"],
     description:
       "Merluza al horno con brócoli asado, aceite de oliva y especias suaves.",
     ingredients: [
@@ -110,7 +110,7 @@ window.GOOD_MEALS = [
     protein: "48g",
     carbs: "37g",
     fat: "31g",
-    labels: ["Alto en proteína", "Sin gluten"],
+    labels: ["Alto en proteína", "Sin gluten","Carne de vacuno","Rico en hierro"],
     description:
       "Ternera molida con arroz blanco, pimientos, cebolla y zanahoria salteada.",
     ingredients: [
@@ -137,7 +137,7 @@ window.GOOD_MEALS = [
     protein: "50g",
     carbs: "37g",
     fat: "14g",
-    labels: ["Alto en proteína", "Sin gluten"],
+    labels: ["Alto en proteína", "Sin gluten","Cocina mediterránea","Rico en vitaminas"],
     description:
       "Pechuga de pollo estilo caprese con arroz blanco, tomate, calabacín y hierbas.",
     ingredients: [
