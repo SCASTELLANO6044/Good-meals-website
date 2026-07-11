@@ -17,7 +17,7 @@ window.GOOD_MEALS = [
     ],
     allergens: ["Leche"],
     heating:
-      "Calienta en microondas durante 2 a 3 minutos, remueve la salsa y deja reposar 1 minuto antes de servir.",
+      "Calienta en microondas de 2 a 3 minutos.",
   },
 
   {
@@ -44,7 +44,7 @@ window.GOOD_MEALS = [
     ],
     allergens: ["Pescado"],
     heating:
-      "Calienta en microondas durante 2 a 3 minutos o en sartén a fuego medio hasta que el salmón y las papas estén calientes.",
+      "Calienta en microondas de 2 a 3 minutos.",
   },
 
   {
@@ -71,7 +71,7 @@ window.GOOD_MEALS = [
     ],
     allergens: ["Gluten", "Pescado"],
     heating:
-      "Calienta en microondas durante 2 a 3 minutos, remueve la salsa y deja reposar 1 minuto antes de servir.",
+      "Calienta en microondas de 2 a 3 minutos.",
   },
 
   {
@@ -98,7 +98,7 @@ window.GOOD_MEALS = [
     ],
     allergens: ["Pescado"],
     heating:
-      "Calienta en microondas durante 2 a 3 minutos o en sartén a fuego medio hasta que la merluza y el brócoli estén calientes.",
+      "Calienta en microondas de 2 a 3 minutos.",
   },
 
   {
@@ -125,7 +125,7 @@ window.GOOD_MEALS = [
     ],
     allergens: ["Sin alérgenos"],
     heating:
-      "Calienta en microondas durante 2 a 3 minutos, remueve a mitad de tiempo y deja reposar 1 minuto antes de servir.",
+      "Calienta en microondas de 2 a 3 minutos.",
   },
 
   {
@@ -152,6 +152,6 @@ window.GOOD_MEALS = [
     ],
     allergens: ["Sin alérgenos"],
     heating:
-      "Calienta en microondas durante 2 a 3 minutos o en sartén a fuego medio hasta que el pollo y el arroz estén calientes.",
+      "Calienta en microondas de 2 a 3 minutos.",
   },
 ];
