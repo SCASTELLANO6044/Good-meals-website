@@ -306,10 +306,8 @@ h3 {
 .meal-crop {
   display: block;
   background-image: url("assets/good-meals-food-sheet.png");
-  background-image: image-set(
-    url("assets/good-meals-food-sheet.webp") type("image/webp"),
-    url("assets/good-meals-food-sheet.png") type("image/png")
-  );
+  background-image: image-set(url("assets/good-meals-food-sheet.webp") type("image/webp"),
+      url("assets/good-meals-food-sheet.png") type("image/png"));
   background-size: 300% 200%;
   background-repeat: no-repeat;
   background-color: var(--paper);
@@ -323,12 +321,29 @@ h3 {
   background-color: var(--paper);
 }
 
-.crop-0 { background-position: 0% 0%; }
-.crop-1 { background-position: 50% 0%; }
-.crop-2 { background-position: 100% 0%; }
-.crop-3 { background-position: 0% 100%; }
-.crop-4 { background-position: 50% 100%; }
-.crop-5 { background-position: 100% 100%; }
+.crop-0 {
+  background-position: 0% 0%;
+}
+
+.crop-1 {
+  background-position: 50% 0%;
+}
+
+.crop-2 {
+  background-position: 100% 0%;
+}
+
+.crop-3 {
+  background-position: 0% 100%;
+}
+
+.crop-4 {
+  background-position: 50% 100%;
+}
+
+.crop-5 {
+  background-position: 100% 100%;
+}
 
 .floating-card {
   position: absolute;
@@ -885,6 +900,7 @@ h3 {
 
 .footer-top p {
   max-width: 560px;
+  font-size: 1.2rem;
 }
 
 .newsletter {
@@ -1189,6 +1205,7 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
