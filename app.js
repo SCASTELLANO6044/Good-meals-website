@@ -18,10 +18,10 @@
           <h3>${meal.name}</h3>
           <p>${meal.description}</p>
           <div class="macro-row">
-            <span>${meal.calories} cal</span>
-            <span>${meal.protein} protein</span>
+            <span>${meal.calories} Calorías</span>
+            <span>${meal.protein} Proteína</span>
           </div>
-          <a class="text-link" href="meals/${meal.slug}.html">View Meal</a>
+          <a class="text-link" href="meals/${meal.slug}.html">Ver Comída</a>
         </div>
       </article>
     `).join("");
@@ -43,13 +43,13 @@
     document.querySelector("#mealDesc").textContent = meal.description;
     document.querySelector("#mealLabels").innerHTML = meal.labels.map((label) => `<span>${label}</span>`).join("");
     document.querySelector("#mealNutrition").innerHTML = [
-      ["Calories", meal.calories],
-      ["Protein", meal.protein],
-      ["Carbs", meal.carbs],
-      ["Fat", meal.fat]
+      ["Calorías", meal.calories],
+      ["Proteína", meal.protein],
+      ["Carbohidratos", meal.carbs],
+      ["Grasas", meal.fat]
     ].map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join("");
     document.querySelector("#mealIngredients").innerHTML = meal.ingredients.map((item) => `<li>${item}</li>`).join("");
-    document.querySelector("#mealAllergens").textContent = meal.allergens.length ? meal.allergens.join(", ") : "No major allergens listed";
+    document.querySelector("#mealAllergens").textContent = meal.allergens.length ? meal.allergens.join(", ") : "No hay alérgenos en la lista de ingredientes.";
     document.querySelector("#mealHeating").textContent = meal.heating;
     document.querySelector("#relatedMeals").innerHTML = related.map((item) => `
       <a class="related-card" href="${item.slug}.html">
