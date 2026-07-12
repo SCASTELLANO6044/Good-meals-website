@@ -9,7 +9,7 @@
     content="Good Meals is a premium meal-prep subscription for fresh, chef-made weekly deliveries you can manage as easily as streaming.">
   <link rel="preload" href="assets/meals/pollo-al-curry.JPG" as="image" type="image/jpeg">
   <link rel="icon" type="image/png" href="assets/good-meals-logo-transparent-bg.png">
-  <link rel="stylesheet" href="styles.css?v=20260710">
+  <link rel="stylesheet" href="styles.css?v=20260712">
 </head>
 
 <body>
@@ -126,28 +126,40 @@
       <div class="menu-carousel" data-reveal>
         <div class="menu-carousel__track" tabindex="0" aria-label="Carrusel de fotos del menú">
           <article class="menu-slide">
-            <div class="menu-slide__placeholder menu-slide__image1">
-            </div>
+            <button class="menu-slide__preview menu-slide__image1" type="button" data-menu-image="assets/menu/menu1.png"
+              data-menu-alt="Weekly Good Meals menu, image 1" aria-label="Expand menu image 1">
+              <span>Ver ampliada</span>
+            </button>
           </article>
           <article class="menu-slide">
-            <div class="menu-slide__placeholder menu-slide__image2">
-            </div>
+            <button class="menu-slide__preview menu-slide__image2" type="button" data-menu-image="assets/menu/menu2.png"
+              data-menu-alt="Weekly Good Meals menu, image 2" aria-label="Expand menu image 2">
+              <span>Ver ampliada</span>
+            </button>
           </article>
           <article class="menu-slide">
-            <div class="menu-slide__placeholder menu-slide__image3">
-            </div>
+            <button class="menu-slide__preview menu-slide__image3" type="button" data-menu-image="assets/menu/menu3.png"
+              data-menu-alt="Weekly Good Meals menu, image 3" aria-label="Expand menu image 3">
+              <span>Ver ampliada</span>
+            </button>
           </article>
           <article class="menu-slide">
-            <div class="menu-slide__placeholder menu-slide__image4">
-            </div>
+            <button class="menu-slide__preview menu-slide__image4" type="button" data-menu-image="assets/menu/menu4.png"
+              data-menu-alt="Weekly Good Meals menu, image 4" aria-label="Expand menu image 4">
+              <span>Ver ampliada</span>
+            </button>
           </article>
           <article class="menu-slide">
-            <div class="menu-slide__placeholder menu-slide__image5">
-            </div>
+            <button class="menu-slide__preview menu-slide__image5" type="button" data-menu-image="assets/menu/menu5.png"
+              data-menu-alt="Weekly Good Meals menu, image 5" aria-label="Expand menu image 5">
+              <span>Ver ampliada</span>
+            </button>
           </article>
           <article class="menu-slide">
-            <div class="menu-slide__placeholder menu-slide__image6">
-            </div>
+            <button class="menu-slide__preview menu-slide__image6" type="button" data-menu-image="assets/menu/menu6.png"
+              data-menu-alt="Weekly Good Meals menu, image 6" aria-label="Expand menu image 6">
+              <span>Ver ampliada</span>
+            </button>
           </article>
         </div>
       </div>
@@ -429,8 +441,21 @@
     </div>
   </footer>
 
+  <dialog class="menu-lightbox" id="menuLightbox" aria-labelledby="menuLightboxTitle">
+    <div class="menu-lightbox__frame">
+      <div class="menu-lightbox__header">
+        <p id="menuLightboxTitle">Vista ampliada del menu</p>
+        <button class="menu-lightbox__close" type="button" data-menu-lightbox-close aria-label="Cerrar vista ampliada">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+      <img class="menu-lightbox__image" src="" alt="">
+      <p class="menu-lightbox__hint">Pulsa Escape o haz clic fuera de la imagen para cerrar.</p>
+    </div>
+  </dialog>
+
   <script src="data.js?v=20260710"></script>
-  <script src="app.js?v=20260710"></script>
+  <script src="app.js?v=20260712"></script>
 </body>
 
 </html>

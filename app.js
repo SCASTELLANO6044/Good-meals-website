@@ -137,6 +137,45 @@
     document.querySelector("[data-carousel-next]")?.addEventListener("click", () => scrollCarousel(1));
   }
 
+  const menuLightbox = document.querySelector("#menuLightbox");
+  const menuImageButtons = Array.from(document.querySelectorAll("[data-menu-image]"));
+  if (menuLightbox && menuImageButtons.length && typeof menuLightbox.showModal === "function") {
+    const lightboxImage = menuLightbox.querySelector(".menu-lightbox__image");
+    const closeButton = menuLightbox.querySelector("[data-menu-lightbox-close]");
+    let activeMenuImage = 0;
+
+    const openMenuImage = (index) => {
+      const trigger = menuImageButtons[index];
+      if (!trigger) return;
+      activeMenuImage = index;
+      lightboxImage.src = trigger.dataset.menuImage;
+      lightboxImage.alt = trigger.dataset.menuAlt;
+      if (!menuLightbox.open) {
+        menuLightbox.showModal();
+        closeButton.focus({ preventScroll: true });
+      }
+    };
+
+    menuImageButtons.forEach((button, index) => {
+      button.addEventListener("click", () => openMenuImage(index));
+    });
+
+    closeButton.addEventListener("click", () => menuLightbox.close());
+    menuLightbox.addEventListener("click", (event) => {
+      if (event.target === menuLightbox) menuLightbox.close();
+    });
+    menuLightbox.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        openMenuImage((activeMenuImage + 1) % menuImageButtons.length);
+      }
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        openMenuImage((activeMenuImage - 1 + menuImageButtons.length) % menuImageButtons.length);
+      }
+    });
+  }
+
   const revealItems = document.querySelectorAll("[data-reveal]");
   if (!prefersReduced && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
