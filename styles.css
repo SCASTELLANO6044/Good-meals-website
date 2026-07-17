@@ -1312,7 +1312,6 @@ h3 {
 
   .steps,
   .why-grid,
-  .meal-grid,
   .plan-grid,
   .testimonial-grid,
   .nutrition-grid,
@@ -1320,6 +1319,28 @@ h3 {
   .review-strip,
   .related-grid {
     grid-template-columns: 1fr;
+  }
+
+  .meal-grid {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    padding: 0.25rem 0 1rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .meal-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .meal-card {
+    flex: 0 0 min(84vw, 340px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .newsletter div {
