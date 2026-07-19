@@ -863,6 +863,13 @@ h3 {
 
 .testimonial-card {
   padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card strong {
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .avatar {
