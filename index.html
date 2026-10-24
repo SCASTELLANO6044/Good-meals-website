@@ -9,7 +9,7 @@
     content="Good Meals is a premium meal-prep subscription for fresh, chef-made weekly deliveries you can manage as easily as streaming.">
   <link rel="preload" href="assets/meals/pollo-al-curry.JPG" as="image" type="image/jpeg">
   <link rel="icon" type="image/png" href="assets/good-meals-logo-transparent-bg.png">
-  <link rel="stylesheet" href="styles.css?v=20260712">
+  <link rel="stylesheet" href="styles.css?v=20261024">
 </head>
 
 <body>
@@ -380,7 +380,7 @@
       </div>
       <form class="contact-form" aria-label="Formulario de contacto" method="post" action="/api/contact.php"
         data-endpoint="/api/contact.php" data-loading="Enviando..." data-success="Mensaje enviado"
-        data-status="Mensaje recibido. Te responderemos pronto." data-reveal>
+        data-status="Mensaje recibido. Te responderemos pronto." data-captcha data-reveal>
         <div class="field-row">
           <label for="contact-name">Nombre <span>obligatorio</span></label>
           <input id="contact-name" name="name" type="text" autocomplete="name" minlength="2" maxlength="100" required
@@ -395,7 +395,7 @@
           <div class="field-row">
             <label for="contact-phone">Teléfono <span>obligatorio</span></label>
             <input id="contact-phone" name="phone" type="tel" autocomplete="tel" minlength="6" maxlength="40"
-              pattern="[+()0-9 .-]{6,40}" required placeholder="+34 600 000 000">
+              pattern="[+\(\)0-9 .\-]{6,40}" required placeholder="+34 600 000 000">
           </div>
         </div>
         <div class="field-row">
@@ -403,7 +403,12 @@
           <textarea id="contact-message" name="message" rows="6" minlength="10" maxlength="2000" required
             placeholder="Cuéntanos sobre tu plan ideal, dudas o necesidades dietéticas."></textarea>
         </div>
+        <div data-turnstile></div>
         <button class="button button--primary" type="submit">Enviar mensaje</button>
+        <p class="captcha-notice">Protegido con verificación automática de Cloudflare Turnstile.
+          Consulta su <a href="https://www.cloudflare.com/turnstile-privacy-policy/"
+            target="_blank" rel="noopener noreferrer">aviso de privacidad</a>.</p>
+        <noscript>Activa JavaScript para verificar y enviar el formulario, o escríbenos a info@goodmeals.es.</noscript>
         <p class="form-status" aria-live="polite"></p>
       </form>
     </section>
@@ -459,7 +464,8 @@
   </dialog>
 
   <script src="data.js?v=20260710"></script>
-  <script src="app.js?v=20260712"></script>
+  <script src="captcha.js?v=20261024-4"></script>
+  <script src="app.js?v=20261024-2"></script>
 </body>
 
 </html>

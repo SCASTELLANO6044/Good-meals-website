@@ -17,6 +17,7 @@ The project combines a main landing page, individual meal pages, and a PHP endpo
 - `index.html` - main page.
 - `styles.css` - global styles.
 - `app.js` - rendering, animations, and form logic.
+- `captcha.js` - automatic Cloudflare Turnstile verification for the contact form.
 - `data.js` - meal catalog and nutrition data.
 - `meals/` - detail pages for each dish.
 - `assets/` - images, logo, and visual assets.
@@ -64,8 +65,36 @@ The form expects these fields:
 - `email`
 - `phone`
 - `message`
+- `cf-turnstile-response` (a fresh Cloudflare Turnstile token)
 
 The endpoint accepts `POST` requests with JSON or `application/x-www-form-urlencoded`, validates the data, and returns a JSON response with `ok`, `message`, and, if needed, `errors`.
+
+### Automatic bot verification
+
+The contact form uses Cloudflare Turnstile. Create a widget in the [Cloudflare dashboard](https://dash.cloudflare.com/?to=/:account/turnstile), select **Invisible** mode for verification without a checkbox, and allow each hostname serving the form (for example, `goodmeals.es`, `www.goodmeals.es`, and your hosting preview hostname, if used).
+
+Add the widget's keys to the hosting environment or the root `.env` file:
+
+```dotenv
+TURNSTILE_SITE_KEY=your-public-site-key
+TURNSTILE_SECRET_KEY=your-private-secret-key
+```
+
+Keep the secret key on the server. The browser requests the public site key with `POST /api/contact.php` and JSON `{"action":"captcha-config"}`, so CAPTCHA setup uses the same supported HTTP method as contact submissions. The configuration handler runs before form validation, rate limiting, or email delivery and uses `Cache-Control: no-store`. `GET /api/contact.php` remains available for deployment checks and older clients. The browser obtains a new token on each submission. The server validates it with Cloudflare before sending either email, and checks the token's `contact` action and hostname against the request hostname (`HTTP_HOST`, falling back to `SERVER_NAME`). PHP needs cURL or HTTPS stream support (`allow_url_fopen` with OpenSSL) and outbound HTTPS access to `challenges.cloudflare.com`.
+
+Missing keys, missing or invalid tokens, and verification service failures block submission. Configure both keys before deploying this change. The form includes a Turnstile privacy disclosure; also reference the [Turnstile Privacy Addendum](https://www.cloudflare.com/turnstile-privacy-policy/) in your site's privacy policy, as required for invisible widgets.
+
+Cloudflare's invisible test site key `1x00000000000000000000BB` can exercise the browser widget. Its dummy server responses do not match this endpoint's production hostname/action checks, so use mocked Siteverify responses for successful server tests or a separate real widget registered to your development hostname. Never use test keys in production. See [Cloudflare's testing guide](https://developers.cloudflare.com/turnstile/troubleshooting/testing/).
+
+The footer newsletter form currently has no submission endpoint or subscription storage. Turnstile protects the working contact endpoint; a newsletter backend would need its own server verification when implemented.
+
+### Uploading to PHP hosting
+
+Upload `index.html`, `app.js`, `captcha.js`, `styles.css`, and **`api/contact.php` inside the `api` folder** together, replacing the existing files in the folder serving the website. Preserve the server's `.env` and its email and Turnstile keys. No Node.js installation or build is needed.
+
+After uploading, open `https://your-domain/api/contact.php` in the browser. The updated PHP endpoint must return JSON with a `sitekey` field. A `405` response with `Metodo no permitido.` means the serving endpoint does not match this version: check that `api/contact.php` was replaced in the correct document root, and clear the hosting PHP OPcache if the old response persists. A `503` response means the keys are missing from the serving environment. Refresh the website to load the revised scripts before testing the form.
+
+The current PHP handler includes the response header `X-Good-Meals-Contact-Version: 20261024-3`, including when configuration is missing. Check this header in the browser's Network panel to confirm that the replacement PHP file is actually executing. If it is absent, the request is still reaching an older handler or a cached response.
 
 ## Menu Content
 
