@@ -3,8 +3,8 @@
   const verificationError = "No se pudo completar la verificación. Inténtalo de nuevo o contacta con info@goodmeals.es.";
 
   function loadApi() {
-    if (window.turnstile) return Promise.resolve(window.turnstile);
     if (apiPromise) return apiPromise;
+    if (window.turnstile) return Promise.resolve(window.turnstile);
 
     apiPromise = new Promise((resolve, reject) => {
       const script = document.createElement("script");
@@ -19,10 +19,10 @@
       script.onerror = fail;
       script.onload = () => {
         if (!window.turnstile) return fail();
-        window.turnstile.ready(() => {
-          window.clearTimeout(timer);
-          resolve(window.turnstile);
-        });
+        // The async script has finished executing. Calling ready() here throws
+        // because Turnstile only supports ready() with synchronous loading.
+        window.clearTimeout(timer);
+        resolve(window.turnstile);
       };
       document.head.appendChild(script);
     }).catch((error) => {
@@ -36,12 +36,17 @@
   window.GOOD_MEALS_CAPTCHA = {
     async getToken(form, endpoint) {
       const response = await fetch(endpoint, {
-        headers: { Accept: "application/json" },
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ action: "captcha-config" }),
         cache: "no-store",
         signal: AbortSignal.timeout(10000)
       }).catch(() => { throw new Error(verificationError); });
       if (response.status === 405) {
-        console.error("Good Meals: the contact endpoint rejected the CAPTCHA configuration request. Upload the matching api/contact.php together with captcha.js.");
+        console.error("Good Meals: the contact endpoint rejected the CAPTCHA configuration POST request. Check that api/contact.php is running the current version.");
         throw new Error(verificationError);
       }
       const config = await response.json().catch(() => { throw new Error(verificationError); });

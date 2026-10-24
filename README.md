@@ -80,7 +80,7 @@ TURNSTILE_SITE_KEY=your-public-site-key
 TURNSTILE_SECRET_KEY=your-private-secret-key
 ```
 
-Keep the secret key on the server. `GET /api/contact.php` returns only the public site key and uses `Cache-Control: no-store`. The browser obtains a new token on each submission. The server validates it with Cloudflare before sending either email, and checks the token's `contact` action and hostname against the request hostname (`HTTP_HOST`, falling back to `SERVER_NAME`). PHP needs cURL or HTTPS stream support (`allow_url_fopen` with OpenSSL) and outbound HTTPS access to `challenges.cloudflare.com`.
+Keep the secret key on the server. The browser requests the public site key with `POST /api/contact.php` and JSON `{"action":"captcha-config"}`, so CAPTCHA setup uses the same supported HTTP method as contact submissions. The configuration handler runs before form validation, rate limiting, or email delivery and uses `Cache-Control: no-store`. `GET /api/contact.php` remains available for deployment checks and older clients. The browser obtains a new token on each submission. The server validates it with Cloudflare before sending either email, and checks the token's `contact` action and hostname against the request hostname (`HTTP_HOST`, falling back to `SERVER_NAME`). PHP needs cURL or HTTPS stream support (`allow_url_fopen` with OpenSSL) and outbound HTTPS access to `challenges.cloudflare.com`.
 
 Missing keys, missing or invalid tokens, and verification service failures block submission. Configure both keys before deploying this change. The form includes a Turnstile privacy disclosure; also reference the [Turnstile Privacy Addendum](https://www.cloudflare.com/turnstile-privacy-policy/) in your site's privacy policy, as required for invisible widgets.
 
@@ -93,6 +93,8 @@ The footer newsletter form currently has no submission endpoint or subscription 
 Upload `index.html`, `app.js`, `captcha.js`, `styles.css`, and **`api/contact.php` inside the `api` folder** together, replacing the existing files in the folder serving the website. Preserve the server's `.env` and its email and Turnstile keys. No Node.js installation or build is needed.
 
 After uploading, open `https://your-domain/api/contact.php` in the browser. The updated PHP endpoint must return JSON with a `sitekey` field. A `405` response with `Metodo no permitido.` means the serving endpoint does not match this version: check that `api/contact.php` was replaced in the correct document root, and clear the hosting PHP OPcache if the old response persists. A `503` response means the keys are missing from the serving environment. Refresh the website to load the revised scripts before testing the form.
+
+The current PHP handler includes the response header `X-Good-Meals-Contact-Version: 20261024-3`, including when configuration is missing. Check this header in the browser's Network panel to confirm that the replacement PHP file is actually executing. If it is absent, the request is still reaching an older handler or a cached response.
 
 ## Menu Content
 

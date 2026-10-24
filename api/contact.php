@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 const MAX_BODY_BYTES = 16384;
 
+// Identify the deployed handler when frontend and PHP uploads get out of sync.
+header('X-Good-Meals-Contact-Version: 20261024-3');
+
 load_env_file(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env');
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -20,6 +23,13 @@ $submissionId = bin2hex(random_bytes(16));
 
 if (!is_allowed_origin()) {
     respond(403, ['ok' => false, 'message' => 'No se pudo enviar el mensaje desde este origen.']);
+}
+
+// Configuration requests are not contact submissions: return only the public key
+// before validating form fields, counting attempts, or sending any email.
+if (($requestBody['action'] ?? null) === 'captcha-config') {
+    require_turnstile_config();
+    respond(200, ['sitekey' => env_value('TURNSTILE_SITE_KEY')]);
 }
 
 [$submission, $errors, $validationDetails] = validate_submission($requestBody);
