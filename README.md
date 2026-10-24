@@ -88,6 +88,12 @@ Cloudflare's invisible test site key `1x00000000000000000000BB` can exercise the
 
 The footer newsletter form currently has no submission endpoint or subscription storage. Turnstile protects the working contact endpoint; a newsletter backend would need its own server verification when implemented.
 
+### Uploading to PHP hosting
+
+Upload `index.html`, `app.js`, `captcha.js`, `styles.css`, and **`api/contact.php` inside the `api` folder** together, replacing the existing files in the folder serving the website. Preserve the server's `.env` and its email and Turnstile keys. No Node.js installation or build is needed.
+
+After uploading, open `https://your-domain/api/contact.php` in the browser. The updated PHP endpoint must return JSON with a `sitekey` field. A `405` response with `Metodo no permitido.` means the serving endpoint does not match this version: check that `api/contact.php` was replaced in the correct document root, and clear the hosting PHP OPcache if the old response persists. A `503` response means the keys are missing from the serving environment. Refresh the website to load the revised scripts before testing the form.
+
 ## Menu Content
 
 Each meal has its own page in `meals/` and its associated image in `assets/meals/`.  

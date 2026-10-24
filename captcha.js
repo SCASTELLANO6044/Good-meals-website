@@ -40,6 +40,10 @@
         cache: "no-store",
         signal: AbortSignal.timeout(10000)
       }).catch(() => { throw new Error(verificationError); });
+      if (response.status === 405) {
+        console.error("Good Meals: the contact endpoint rejected the CAPTCHA configuration request. Upload the matching api/contact.php together with captcha.js.");
+        throw new Error(verificationError);
+      }
       const config = await response.json().catch(() => { throw new Error(verificationError); });
       if (!response.ok || !config.sitekey) {
         throw new Error(config.message || verificationError);
