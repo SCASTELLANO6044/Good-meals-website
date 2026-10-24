@@ -68,7 +68,7 @@
         return;
       }
       const button = form.querySelector("button");
-      if (!button) return;
+      if (!button || button.disabled) return;
       const original = button.textContent;
       const status = form.querySelector(".form-status");
       const endpoint = form.getAttribute("data-endpoint");
@@ -82,13 +82,19 @@
         if (status) status.textContent = "";
 
         try {
+          const payload = Object.fromEntries(new FormData(form).entries());
+          if (form.hasAttribute("data-captcha")) {
+            if (status) status.textContent = "Verificando de forma automática…";
+            payload["cf-turnstile-response"] = await window.GOOD_MEALS_CAPTCHA.getToken(form, endpoint);
+            if (status) status.textContent = "Enviando mensaje…";
+          }
           const response = await fetch(endpoint, {
             method: "POST",
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json"
             },
-            body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+            body: JSON.stringify(payload)
           });
           const result = await response.json().catch(() => ({}));
 

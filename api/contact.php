@@ -5,7 +5,13 @@ const MAX_BODY_BYTES = 16384;
 
 load_env_file(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env');
 
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    require_turnstile_config();
+    respond(200, ['sitekey' => env_value('TURNSTILE_SITE_KEY')]);
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Allow: GET, POST');
     respond(405, ['ok' => false, 'message' => 'Metodo no permitido.']);
 }
 
@@ -46,6 +52,9 @@ if (!has_email_config()) {
         'message' => 'El formulario no esta disponible ahora mismo. Intentalo de nuevo mas tarde.',
     ]);
 }
+
+require_turnstile_config();
+verify_turnstile($requestBody['cf-turnstile-response'] ?? null);
 
 $submittedAt = gmdate('c');
 
@@ -306,6 +315,80 @@ function is_rate_limited(): bool
     fclose($handle);
 
     return $entry['count'] > $maxAttempts;
+}
+
+function require_turnstile_config(): void
+{
+    if (trim((string)env_value('TURNSTILE_SITE_KEY')) === '' || trim((string)env_value('TURNSTILE_SECRET_KEY')) === '') {
+        error_log('Good Meals Turnstile configuration is missing.');
+        respond(503, [
+            'ok' => false,
+            'message' => 'El formulario no está disponible ahora mismo. Escríbenos a info@goodmeals.es.',
+        ]);
+    }
+}
+
+function verify_turnstile($token): void
+{
+    $invalidMessage = 'No se pudo verificar el formulario. Inténtalo de nuevo.';
+    if (!is_string($token) || trim($token) === '' || strlen($token) > 2048) {
+        respond(400, ['ok' => false, 'message' => $invalidMessage]);
+    }
+
+    $body = http_build_query([
+        'secret' => env_value('TURNSTILE_SECRET_KEY'),
+        'response' => $token,
+    ]);
+    $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+    $rawResponse = false;
+
+    // cURL is preferred; shared hosts may only provide HTTPS stream wrappers.
+    if (function_exists('curl_init')) {
+        $handle = curl_init($url);
+        curl_setopt_array($handle, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $body,
+            CURLOPT_HTTPHEADER => ['Content-Type: application/x-www-form-urlencoded'],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 5,
+            CURLOPT_TIMEOUT => 10,
+            CURLOPT_FOLLOWLOCATION => false,
+        ]);
+        $rawResponse = curl_exec($handle);
+        $status = (int)curl_getinfo($handle, CURLINFO_HTTP_CODE);
+        curl_close($handle);
+        if ($status !== 200) {
+            $rawResponse = false;
+        }
+    } elseif (filter_var(ini_get('allow_url_fopen'), FILTER_VALIDATE_BOOLEAN)) {
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+                'content' => $body,
+                'timeout' => 10,
+                'follow_location' => 0,
+            ],
+        ]);
+        $rawResponse = @file_get_contents($url, false, $context);
+    }
+
+    $result = is_string($rawResponse) ? json_decode($rawResponse, true) : null;
+    if (!is_array($result) || !isset($result['success']) || !is_bool($result['success'])) {
+        error_log('Good Meals Turnstile verification service unavailable.');
+        respond(503, [
+            'ok' => false,
+            'message' => 'La verificación no está disponible ahora mismo. Inténtalo de nuevo en unos minutos.',
+        ]);
+    }
+
+    $expectedHost = normalize_host((string)($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME'] ?? ''));
+    if ($result['success'] !== true
+        || ($result['action'] ?? '') !== 'contact'
+        || normalize_host((string)($result['hostname'] ?? '')) !== $expectedHost
+        || $expectedHost === '') {
+        respond(403, ['ok' => false, 'message' => $invalidMessage]);
+    }
 }
 
 function has_email_config(): bool
